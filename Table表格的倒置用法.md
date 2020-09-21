@@ -38,6 +38,7 @@ const columns = [
 
 <Table dataSource={dataSource} columns={columns} />;
 ```
+效果如下：
 
 ![image](https://github.com/lizuncong/Front-End-Development-Notes/blob/master/resource/table-01.jpg)
 
