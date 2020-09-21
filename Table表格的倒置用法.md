@@ -38,4 +38,6 @@ const columns = [
 
 <Table dataSource={dataSource} columns={columns} />;
 ```
-<img src="https://github.com/lizuncong/Front-End-Development-Notes/blob/master/resource/table-01.jpg" width="50%">
+
+![image](https://github.com/lizuncong/Front-End-Development-Notes/blob/master/resource/table-01.jpg)
+
