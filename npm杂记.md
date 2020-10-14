@@ -1,4 +1,8 @@
-# npm 发包流程
+### 使用python在本地启动一个服务
+本地启动服务，在项目目录下运行python -m SimpleHTTPServer 8000。
+即可。8000是端口，可以不填，默认8000
+
+### npm 发包流程
 1. 打开npmjs.com官网注册一个账号，注意激活邮箱
 2. 修改package.json中的name，这个name不是项目名称，而是包名称。
 3. 打开控制台，执行npm login，在控制台登录npm。
@@ -7,7 +11,7 @@
    则表示登录成功。注意这里要使用npm官网的源，不要使用淘宝等第三方源。
 4. 登录成功后，在项目下执行npm publish就行了。   
 
-# npm各字段，这里使用本人所写的rui-mobile包为例
+### npm各字段，这里使用本人所写的rui-mobile包为例
 
 1. files
    > npm包作为依赖安装时要包括的文件，比如 npm install rui-mobile 时，会将rui-mobile的packages.json

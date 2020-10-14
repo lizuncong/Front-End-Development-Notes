@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>hash实现前端路由方式</title>
+    </head>
+    <style>
+        .container{
+            display: flex;
+            height: 500px;
+        }
+        .menu{
+            text-align: center;
+            width: 200px;
+            border-right: 1px solid #e8e8e8;
+        }
+        #route{
+            flex: 1;
+            margin-left: 20px;
+        }
+    </style>
+    <body>
+        <div class="container">
+            <div class="menu">
+                <div>
+                    <a href="#/home">home</a>
+                </div>
+                <div>
+                    <a href="#/about">about</a>
+                </div>
+            </div>
+            <div id="route">
+            </div>
+        </div>
+    </body>
+    <script>
+        window.onload = function(){
+            var route = document.getElementById('route');
+            function onHashChange(){
+                switch (location.hash) {
+                    case '#/home':
+                        route.innerHTML = 'Home'
+                        return
+                    case '#/about':
+                        route.innerHTML = 'About'
+                        return
+                    default:
+                        return
+                }
+            }
+            // 1.浏览器前进后退。2.点击a标签修改URL。3.通过window.location.href修改URL
+            // 这三种方式均会触发hashchange事件。
+            window.addEventListener('hashchange', onHashChange)
+            onHashChange()
+        }
+    </script>
+</html>
