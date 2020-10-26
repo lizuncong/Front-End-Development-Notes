@@ -7,7 +7,7 @@ escaping，即转义。less的转义和js的转义稍有不同。less的转义�
 @function2: ~"(function(){ console.log('function2=============='); return '200px'})()";
 @function3: (function(){ console.log('function3=============='); return '2px'})(); // Less3.5版本以上，可以不用写~以及""
 @number: 2;
-@var: ~"@{number}px"; // 不能使用~`${number}px`这种es6的语法。
+@var: ~"@{number}px"; // 变量的模版插入语法，不能使用~`${number}px`这种es6的语法。
 @min768: (min-width: 768px); // 也可以直接使用，不需要~""
 .test-escaping{
   width: @function1;
