@@ -2,7 +2,7 @@
 1. 变量
 2. escaping
 3. mixin
-4. extend
+4. extend伪类
 5. & 父选择器
 
 ##### 1.calc
