@@ -117,7 +117,7 @@ mixin的定义也可以带括号()
 }
 
 .width(){
-  width1: 100px;
+  width1: 100px; // 这个就和css属性的写法一致，不用width1: "100px"，而是直接：width1：100px;
   width2: 50px;
 }
 ```
