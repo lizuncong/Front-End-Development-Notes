@@ -89,3 +89,27 @@ const ComponentA = React.memo(() => {
 
 #以上就是使用 class 组件 和 函数式 组件的一些思考
 
+
+当然，useCallback这一不足也可以通过以下方案解决：
+```jsx
+function Form() {
+  const [text, updateText] = useState('');
+  const textRef = useRef();
+
+  useEffect(() => {
+    textRef.current = text; // 把它写入 ref
+  });
+
+  const handleSubmit = useCallback(() => {
+    const currentText = textRef.current; // 从 ref 读取它
+    alert(currentText);
+  }, [textRef]); // 不要像 [text] 那样重新创建 handleSubmit
+
+  return (
+    <>
+      <input value={text} onChange={e => updateText(e.target.value)} />
+      <ExpensiveTree onSubmit={handleSubmit} />
+    </>
+  );
+}
+```
