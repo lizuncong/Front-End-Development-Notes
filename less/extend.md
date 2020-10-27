@@ -77,3 +77,86 @@ nav ul {
 }
 ```
 上面的例子可以看出，extend加了个 all 参数后，其实就是简单的理解为将.test出现的地方替换成.replacement。
+
+
+#### Extend的典型使用场景：
+1. 可以避免添加基础类。比如一个很常见的场景：
+```less
+.animal {
+  background-color: black;
+  color: white;
+}
+.bear {
+  background-color: brown;
+}
+```
+```html
+<a class="animal bear">Bear</a>
+```
+
+使用extend就可以这样做：
+```less
+.animal {
+  background-color: black;
+  color: white;
+}
+.bear {
+  &:extend(.animal);
+  background-color: brown;
+}
+```
+```html
+<a class="bear">Bear</a>
+```
+
+2. 减少CSS大小。
+
+mixins将一个选择器中的所有属性全部拷贝到另一个选择器中，这就造成了css代码的重复。
+因此可以使用extend去复用css代码。
+
+使用mixin：
+```less
+.my-inline-block() {
+  display: inline-block;
+  font-size: 0;
+}
+.thing1 {
+  .my-inline-block;
+}
+.thing2 {
+  .my-inline-block;
+}
+
+// 编译后：
+.thing1 {
+  display: inline-block;
+  font-size: 0;
+}
+.thing2 {
+  display: inline-block;
+  font-size: 0;
+}
+```
+使用extends：
+```less
+.my-inline-block {
+  display: inline-block;
+  font-size: 0;
+}
+.thing1 {
+  &:extend(.my-inline-block);
+}
+.thing2 {
+  &:extend(.my-inline-block);
+}
+
+// 编译后：
+.my-inline-block,
+.thing1,
+.thing2 {
+  display: inline-block;
+  font-size: 0;
+}
+```
+
+可以看出，extend还是能减少一定的代码量的

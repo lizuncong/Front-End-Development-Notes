@@ -135,3 +135,17 @@ mixin的定义也可以带括号()
 
 综上可以看出，mixin的名字要么是一个id选择器，要么是类选择器，比如#colors，.border，而不能直接colors或者border。
 优先使用带括号的方式。
+
+
+mixin的命名空间：
+```less
+#outer() {
+  .inner {
+    color: red;
+  }
+}
+
+.c {
+  #outer.inner();
+}
+```

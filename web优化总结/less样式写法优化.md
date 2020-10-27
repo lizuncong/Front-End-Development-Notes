@@ -25,24 +25,52 @@
 
 
 ##### 2.相对于mixin，优先使用extend
-extend不会生成额外的css属性代码，而是共用一个css规则，比如：
+extend能够减少CSS大小。mixins将一个选择器中的所有属性全部拷贝到另一个选择器中，这就造成了css代码的重复。
+因此可以使用extend去复用css代码。
+
+使用mixin：
 ```less
-.colors{
-  color: red;
+.my-inline-block() {
+  display: inline-block;
+  font-size: 0;
 }
-#header{
-  background-color: red;
-  &:extend(.colors);
+.thing1 {
+  .my-inline-block;
+}
+.thing2 {
+  .my-inline-block;
 }
 
 // 编译后：
-#header{
-  background-color: red;
+.thing1 {
+  display: inline-block;
+  font-size: 0;
 }
-
-.colors, #header{
-  color: red;
+.thing2 {
+  display: inline-block;
+  font-size: 0;
 }
-
 ```
-因此extend可以减少一部分css代码。
+使用extends：
+```less
+.my-inline-block {
+  display: inline-block;
+  font-size: 0;
+}
+.thing1 {
+  &:extend(.my-inline-block);
+}
+.thing2 {
+  &:extend(.my-inline-block);
+}
+
+// 编译后：
+.my-inline-block,
+.thing1,
+.thing2 {
+  display: inline-block;
+  font-size: 0;
+}
+```
+
+可以看出，extend还是能减少一定的代码量的

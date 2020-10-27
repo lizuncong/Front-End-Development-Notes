@@ -1,9 +1,37 @@
-#### LESS语言的几大特性：
-1. 变量
-2. escaping
-3. mixin
-4. extend伪类
-5. & 父选择器
+### LESS语言的几大特性：
+#### 1. 变量
+1. 变量插值: @{}；
+2. 属性变量: 
+```less
+@property: color; 
+#header{ 
+  @{property}: red 
+}; 
+```
+3. 变量的变量: @color1: red; @color2: color1; #header{ color: @@color2}
+4. 将css属性做为变量：$。
+```less
+#header{
+    color: red;
+    background-color: $color;
+}
+```
+#### 2. escaping
+1. ~"anything"，如果anything包含变量插值，则anything里面的变量替换成相应的值
+2. ~``，其中`里面可以是普通字符串，也可以是自执行nodejs函数。
+#### 3. mixin
+1. 将一个选择器的css属性集合拷贝到另一个选择器当中
+2. 注意区分带括号与不带括号的mixin的差异
+#### 4. extend本质上是一个伪类
+1. 注意extend all的用法及含义。
+#### 5. & 父选择器
+1. & 代表的是所有的父选择器，可以简单的将父选择器替换到&出现的地方，就是编译后的css结果
+2. & 能够改变选择器的顺序。
+3. & 能够做组合。
+#### 6. Merge。提供了一种合并css值的方式。
+
+
+
 
 ##### 1.calc
 可以使用calc做一些简单的计算:
@@ -155,3 +183,41 @@ a + a{
 
 
 ***总之一句话：将所有的父选择器放在 & 符号出现的地方，就是编译后的结果***
+
+
+##### 6. Merge
+其实就是种合并css属性的方法。
+
+有两种方式： 1. 通过逗号连接值。 2. 通过空格连接值
+
+1. 逗号："+"，属性名称后面要拼上"+"号
+```less
+.mixin() {
+  box-shadow+: inset 0 0 10px #555;
+}
+.myclass {
+  .mixin();
+  box-shadow+: 0 0 20px black;
+}
+
+// 编译后：
+.myclass{
+  box-shadow: inset 0 0 10px #555, 0 0 20px black;
+}
+
+```
+
+2. 空格：属性名称后面要拼上"+_"。
+```less
+.mixin() {
+  transform+_: scale(2);
+}
+.myclass {
+  .mixin();
+  transform+_: rotate(15deg);
+}
+// 编译后：
+.myclass {
+  transform: scale(2) rotate(15deg);
+}
+```
