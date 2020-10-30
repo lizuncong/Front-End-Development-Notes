@@ -70,3 +70,6 @@ package.json的dependencies只有rui-mobile这个依赖，然后打开npm-test�
 2.rui-mobile中的devDependencies都不会被下载到npm-test目录下。
 
 3.rui-mobile中的peerDependencies都不会被下载到npm-test目录下，但是会在控制台提示用户安装peerDependencies指定的依赖。
+
+4.在rui-mobile中执行npm install时，只会安装dependencies以及devDependencies指定的依赖，peerDependencies
+指定的依赖不会被安装
