@@ -36,3 +36,37 @@
  }
 ```
 注：如果peerDependencies指定的npm包没有下载，npm版本1和2会直接下载。 npm3不会下载，会给出警告。
+
+关于dependencies，devDependencies，peerDependencies的差别可以看下图：
+
+![image](https://github.com/lizuncong/Front-End-Development-Notes/blob/master/resource/npm-01.png)
+
+如图，rui-mobile中有peerDependencies，dependencies，devDependencies
+```js
+/*rui-mobile中的依赖关系*/
+  dependencies = {
+    "lodash": "^4.17.20",
+    "moment": "^2.29.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  };
+  devDependencies = {
+    "chalk": "^4.1.0",
+    "rimraf": "^3.0.2"
+  };
+  peerDependencies = {
+      "react": ">=16.9.0",
+      "react-dom": ">=16.9.0",
+      "classnames": ">=2.2.6"
+  }
+```
+
+然后新建一个npm-test项目，这是一个空的项目，什么依赖都没有，在这个目录下执行 `npm init -y`，
+然后执行 `npm install rui-mobile`，观察npm-test的package.json文件的依赖字段，可以看见
+package.json的dependencies只有rui-mobile这个依赖，然后打开npm-test下面的node-modules可以发现，
+
+1.rui-mobile中dependencies指定的依赖都下载到了npm-test目录下。
+
+2.rui-mobile中的devDependencies都不会被下载到npm-test目录下。
+
+3.rui-mobile中的peerDependencies都不会被下载到npm-test目录下，但是会在控制台提示用户安装peerDependencies指定的依赖。
