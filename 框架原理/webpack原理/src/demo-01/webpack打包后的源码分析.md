@@ -52,3 +52,14 @@ eval("const add = __webpack_require__(/*! ./add */ \"./demo-01/add.js\");\n\nadd
 });
 ```    
 
+可以发现，打包后的源码就是个自执行函数，类似下面这样：
+```js
+(function(modules) {
+    
+})
+({
+    './demo-01/add.js': (function(){ eval("console.log('add.js')")}),
+    './demo-01/index.js': (function(){ eval("console.log('index.js')")}),
+})
+```
+
