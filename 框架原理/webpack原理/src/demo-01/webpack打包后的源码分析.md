@@ -83,6 +83,12 @@ function myFunc(cusModule){
     console.log('this.name', this, this.name);
     cusModule.exports = (a, b) => { console.log('a + b', a + b); console.log('this.name', this.name) };
 }
+
+function myFunc2(cusModule){
+    this.name = "lzc";
+    console.log('this.name', this, this.name);
+    cusModule.exports = function(a, b) { console.log('a + b', a + b); console.log('this.name', this, this.name) };
+}
 ```
 
 2. 为啥是eval
