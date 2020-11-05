@@ -75,3 +75,17 @@ eval("exports.minus = (a, b) => {\n    console.log('a * b = ', a * b)\n}\n\n\n//
 })
 ```
 
+
+1. 当前作用域是如何绑定的？
+```js
+function myFunc(cusModule){
+    this.name = "lzc";
+    console.log('this.name', this, this.name);
+    cusModule.exports = (a, b) => { console.log('a + b', a + b); console.log('this.name', this.name) };
+}
+```
+
+2. 为啥是eval
+
+3. 为啥是exports，module.exports
+

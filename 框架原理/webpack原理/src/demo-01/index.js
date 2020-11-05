@@ -1,7 +1,7 @@
 const add = require('./add');
 const { minus } = require('./utils');
 
-console.log('utils...', add);
-add(1 , 2);
+this.indexField = '这是index.js模块的作用域';
+this.name = 'index.js';
 add(3 , 4);
 minus(4, 5);
