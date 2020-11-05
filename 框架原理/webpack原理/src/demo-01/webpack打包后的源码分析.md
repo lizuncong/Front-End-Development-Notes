@@ -10,22 +10,27 @@
 (function(modules) { // webpackBootstrap
     // The module cache
     var installedModules = {};
+
     // The require function
     function __webpack_require__(moduleId) {
+
         // Check if module is in cache
         if(installedModules[moduleId]) {
             return installedModules[moduleId].exports;
         }
         // Create a new module (and put it into the cache)
         var module = installedModules[moduleId] = {
-            l: false,
             i: moduleId,
+            l: false,
             exports: {}
         };
+
         // Execute the module function
         modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+
         // Flag the module as loaded
         module.l = true;
+
         // Return the exports of the module
         return module.exports;
     }
@@ -33,23 +38,30 @@
     return __webpack_require__(__webpack_require__.s = "./demo-01/index.js");
 })
 ({
-
 "./demo-01/add.js":
 /*! no static exports found */
 (function(module, exports) {
 
-eval("module.exports = (a, b) => {\n    console.log('a + b = ', a + b);\n}\n\n\n//# sourceURL=webpack:///./demo-01/add.js?");
+eval("const c = 10\nmodule.exports = (a, b) => {\n    console.log('a + b = ', a + b + c);\n}\n\n\n//# sourceURL=webpack:///./demo-01/add.js?");
 
 }),
 
 "./demo-01/index.js":
-(function(module, exports, __webpack_require__) {
+ (function(module, exports, __webpack_require__) {
 
-eval("const add = __webpack_require__(/*! ./add */ \"./demo-01/add.js\");\n\nadd(1 , 2);\nadd(3 , 4);\n\n\n//# sourceURL=webpack:///./demo-01/index.js?");
+eval("const add = __webpack_require__(/*! ./add */ \"./demo-01/add.js\");\nconst { minus } = __webpack_require__(/*! ./utils */ \"./demo-01/utils.js\");\n\nconsole.log('utils...', add);\nadd(1 , 2);\nadd(3 , 4);\nminus(4, 5);\n\n\n//# sourceURL=webpack:///./demo-01/index.js?");
+ 
+ }),
+
+"./demo-01/utils.js":
+(function(module, exports) {
+
+eval("exports.minus = (a, b) => {\n    console.log('a * b = ', a * b)\n}\n\n\n//# sourceURL=webpack:///./demo-01/utils.js?");
 
 })
 
 });
+
 ```    
 
 可以发现，打包后的源码就是个自执行函数，类似下面这样：
