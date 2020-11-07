@@ -1,7 +1,7 @@
 
 this.utilField = '这是util.js模块的作用域'
-this.name = 'util.js'
-exports.minus = (a, b) => {
-    console.log('minus...this.name...', this.name);
+this.testName = 'util.js'
+exports.minus = function(a, b) {
+    console.log('minus...this.testName...', this.testName);
     console.log('a * b = ', a * b)
 }

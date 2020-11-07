@@ -69,3 +69,9 @@ eval("\nthis.utilField = '这是util.js模块的作用域'\nthis.name = 'util.js
 
 3. 为啥是exports，module.exports
 
+浏览器是不能直接运行commonjs语法的，比如，在浏览器中不能直接require，或者使用module.exports以及exports
+webpack在js里用对象模拟了commonjs中的module.exports以及exports。这也是为啥
+```js
+modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+```
+这段代码就是将module，module.exports传入各个模块，将各个模块中暴露的内容加载到对象中

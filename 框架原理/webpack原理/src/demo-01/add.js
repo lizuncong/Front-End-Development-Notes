@@ -1,9 +1,9 @@
 const c = 10
 
 this.addField = '这是add.js模块的作用域'
-this.name = 'add.js';
-
-module.exports = (a, b) => {
-    console.log('add...this.name', this.name);
+this.testName = 'add.js';
+this.code = '404'
+module.exports = function(a, b) {
+    console.log('add...this.testName', this.testName);
     console.log('a + b = ', a + b + c);
 }
