@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build-demo-01": "webpack --config ./demo-01/webpack.config.js",
+    "build-demo-02": "webpack --config ./demo-02/webpack.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
