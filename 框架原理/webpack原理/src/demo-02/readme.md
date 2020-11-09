@@ -13,3 +13,6 @@ module.exports = {
 
 ```
 比如，output如果设置了output.libraryTarget = 'umd'或者'amd'或者'commonjs'等等，打包后的源码是咋样的，都可以在这里演示
+
+
+注意观察webpack打包es6的import，export。webpack对es6的模块化处理方式和commonjs的处理方式有很大的差异。

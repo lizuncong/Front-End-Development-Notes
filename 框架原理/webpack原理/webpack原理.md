@@ -25,7 +25,8 @@ modules[moduleId].call(module.exports, module, module.exports, __webpack_require
 为啥要用call调用，如果不用call，直接调用会有啥问题      
 6. webpack在解析文件时为啥要用eval
     eval的用意：读取模块文件时，以字符串的形式读取，方便第三方插件做代码格式的检查以及源码映射等
-
+7. 实际上，__webpack_require__.r，__webpack_require__.n，__webpack_require__.o，__webpack_require__.d等等这些方法，
+在打包es6的import，export时会用到，打包commonjs时用不上。
 
 ## webpack是什么？
 webpack是一个用于现代JavaScript应用程序的静态模块打包工具。当使用webpack打包时，webpack会从入口模块开始构建内部依赖图。
@@ -43,7 +44,7 @@ webpack的几个核心概念：
 webpack打包的过程，其实可以简单的看做是读取文件，并替换掉require语句或者其他语法。如果需要使用loader做语法转换，则对源文件的语法做转换，比如将
 箭头函数转换成普通函数，然后替换源文件中箭头函数的部分。
 
-以打包commonjs规范的代码为例
+以打包commonjs规范(webpack对es6的模块化和对commonjs的模块化处理不同，对commonjs的处理相对简单点)的代码为例
 ```js
 //index.js文件
 const add = require('./add');
