@@ -21,3 +21,10 @@ setTimeout(() => {
 // 同步执行
 console.log(3)
 ```
+
+
+### 为什么JavaScript是单线程
+JavaScript语言的一大特性就是单线程，这与它的用途有关。作为浏览器脚本语言，JavaScript的主要用途是与用户互动以及操作DOM。    
+假如JavaScript同时有两个线程，一个线程在某个DOM节点上添加内容，另一个线程删除了这个节点，这时浏览器应该以哪个线程为主？因此，为了避免复杂性，
+JavaScript从诞生起就是单线程。     
+为了利用多核CPU的计算能力，html5提出Web Worker标准，允许JavaScript脚本创建多个线程，但是子线程完全受主线程控制，且不得操作DOM。
