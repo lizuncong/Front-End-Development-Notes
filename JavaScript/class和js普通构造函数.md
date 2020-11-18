@@ -48,3 +48,5 @@ class实现继承更加易读、易理解
 本质上还是语法糖，使用prototype
 
 
+ES5定义类以函数形式，以prototype来实现继承      
+ES6以class形式定义类，以extend形式继承
