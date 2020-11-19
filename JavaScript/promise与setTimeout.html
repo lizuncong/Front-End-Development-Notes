@@ -19,6 +19,14 @@
     console.log('ooooooooo')
   }, 4000)
 
+    setTimeout(() => {
+      console.log('timeout...0')
+    }, 0)
+
+    Promise.resolve().then(res => {
+      console.log('promise先执行....')
+    })
+
   new Promise(resolve => {
     setTimeout(() => {
       console.log('what the fuck...')
