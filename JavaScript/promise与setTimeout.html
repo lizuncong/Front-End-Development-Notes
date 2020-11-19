@@ -20,10 +20,24 @@
   }, 4000)
 
   new Promise(resolve => {
-    console.log('=+++++++')
+    setTimeout(() => {
+      console.log('what the fuck...')
+    }, 4000)
     setTimeout(() => resolve(), 4000)
   }).then(res => {
     console.log('==========')
+  })
+
+    new Promise(resolve => {
+      setTimeout(() => resolve(), 4000)
+    }).then(res => {
+      console.log('===+++++++=======')
+    })
+
+  new Promise(resolve => {
+    setTimeout(() => resolve(), 3500)
+  }).then(res => {
+    console.log('++++++++++')
   })
 
   const times = [4000, 8000, 6300, 4500, 0]
