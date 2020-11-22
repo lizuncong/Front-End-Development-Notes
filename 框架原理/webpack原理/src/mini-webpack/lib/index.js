@@ -9,10 +9,7 @@ const defaultConfig = {
   }
 }
 
-const config = {...defaultConfig, ...require(path.resolve('./kkb.config.js'))}
-// 拿到了最终的配置
-
-class KkbPack{
+class MiniPack{
   constructor(config){
     // 存储一下配置
     this.config = config
@@ -25,12 +22,12 @@ class KkbPack{
   parse(code, parent){
     let deps = []
     let r = /require\('(.*)'\)/g
-    // require('xx')替换为__kkbpack_require__
+    // require('xx')替换为__minipack_require__
     code = code.replace(r, function(match, arg){
       // 依赖路径
       const retPath = path.join(parent, arg.replace(/'|"/g),'')
       deps.push(retPath)
-      return `__kkbpack_require__("./${retPath}")`
+      return `__minipack_require__("./${retPath}")`
     })
     return {code, deps}
     // 能够解析文件内容种的require('xx.js')这种格式
@@ -43,7 +40,7 @@ class KkbPack{
     // 替换后的代码喝依赖数组
     const { code, deps} = this.parse(fileContent, path.dirname(name))
     console.log(code, deps)
-    this.modules[name] = `function(module, exports, __kkbpack_require__){
+    this.modules[name] = `function(module, exports, __minipack_require__){
         eval(\`${code}\`)
       }
       `
@@ -82,5 +79,8 @@ class KkbPack{
   }
 }
 
-const kkb = new KkbPack(config)
-kkb.start()
+
+const config = {...defaultConfig, ...require(path.resolve('../webpack.config.js'))}
+// 拿到了最终的配置
+const miniPack = new MiniPack(config)
+miniPack.start()
