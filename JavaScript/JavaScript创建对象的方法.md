@@ -111,3 +111,26 @@ Person.prototype = {
 
 // Person.prototype对象的constructor不再指向Person。而是指向新对象的constructor属性（即指向Object构造函数）
 ```
+
+****原型对象的问题：原型中所有属性是被很多实例共享的，这种共享对于函数非常合适，对于那么包含基本值的属性也还好，
+对于包含引用类型值的属性来说，问题就比较突出****
+
+#### 组合使用构造函数模式和原型模式
+这种创建自定义类型的最常见方式。      
+构造函数模式用于定义实例属性，原型模式用于定义方法和共享的属性
+```js
+function Person(name, age, job){
+    this.name = name; 
+    this.age = age;
+    this.job = job;
+    this.friends = ["Shelby", "Court"];
+}
+Person.prototype = {
+    constructor : Person,
+    sayName : function(){
+        alert(this.name);
+    }
+}
+var person1 = new Person("Nicholas", 29, "Software Engineer");
+var person2 = new Person("Greg", 27, "Doctor");
+```
