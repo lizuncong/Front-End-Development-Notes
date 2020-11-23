@@ -1,6 +1,22 @@
-### 创建对象
-创建对象可以直接使用 `let o = new Object(); o.name = 'lzc' ` 或者对象字面量的方式 `let o = { name: 'lzc' }`
+#### 创建对象
+我觉得创建对象，应该以减少代码冗余，节省内存为目的。我们常见的创建对象的方式：      
+```js
+let o = new Object(); 
+o.name = 'lzc'; 
+o.sayName = function(){
+    console.log('My name is：' + this.name)
+}
+// 或者对象字面量的方式创建：
+let o = { 
+    name: 'lzc',
+    sayName: function(){
+        console.log('My name is：' + this.name);
+    }
+}
+```
+这两种方式创建对象很简单，但是会产生大量的重复代码。如果我们需要再创建一个包含一样属性的对象，那么就需要重复写一次这些代码。
 
+***创建对象的几种方法：工厂模式、构造函数模式、
 
 #### 工厂模式
 ```js
@@ -17,11 +33,12 @@ function createPerson(name, age, job){
 
 var person1 = createPerson('lzc', 26, '程序员')
 ```
-****优点：解决了创建多个相似对象的问题      
-缺点：没有解决对象识别的问题，即怎样知道一个对象的类型****
+优点：解决了创建多个相似对象会产生大量重复代码的问题        
+缺点：由于返回的对象实例都是Object，因此无法识别出对象属于哪个类型，即怎样知道一个对象的类型
 
 
 #### 构造函数模式
+对象的constructor属性最初是用来标识对象类型的。可以通过person instanceof Person来判断
 ```js
 function Person(name, age, job){
   this.name = name;
@@ -42,10 +59,10 @@ person1.constructor === Person
 1.创建一个新对象      
 2.将构造函数的作用域赋给新对象(因此this就指向了这个新对象)      
 3.执行构造函数中的代码(为这个新对象添加属性)      
-4.返回新对象
+4.返回新对象       
 
 ****构造函数的问题      
-使用构造函数的主要问题，就是每个方法都要在每个实例上重新创建一遍。实际上相当于下面这样：****
+使用构造函数的主要问题，就是每个方法都要在每个实例上重新创建一遍。我们的目的就是让所有实例共享一个方法，节省内存。实际上相当于下面这样：****
 ```js
 function Person(name, age, job){
   this.name = name;
@@ -69,9 +86,9 @@ function sayName(){
 
 
 #### 原型模式
-1)每个函数都有一个prototype属性，指向一个对象，这个对象自动获得constructor属性。这个对象包含可以由特定类型的所有实例共享的属性和方法。        
-2)prototype就是通过调用构造函数而创建的那个对象实例的原型对象。     
-3)使用原型对象的好处是可以让所有对象实例共享它所包含的属性和方法。
+1)每个函数都有一个prototype属性，这个属性指向的是函数的原型对象        
+2)原型对象有个constructor属性，这个属性又指向函数。      
+3)原型对象包含的属性和方法可以由所有对象实例共享。        
 ```js
 function Person(){
 }
