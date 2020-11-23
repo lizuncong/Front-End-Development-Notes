@@ -1,22 +1,51 @@
-js的继承和类的继承的差别
+#### 原型链
+让原型对象等于另一个类型的实例
+
+原型链最主要的问题来自包含引用类型值的原型
+
+
+#### 组合继承
 ```js
-function fn(){
-    console.log('real..', this);
-    var arr = [1,2,3]
-    arr.map(function(item) {
-       console.log('this..', this) 
-       console.log('item..', item)
-       return item + 1
-    })
+function SuperType(name){
+  this.name = name;
+  this.colors = ["red", "blue", "green"];
 }
 
-fn.call({ a: 100 })
-
-const a = {
-    name: 'lzc',
-    print: function(){
-        console.log(this.name)
-    }
+SuperType.prototype.sayName = function(){
+  alert(this.name);
 }
-a.print()
+
+function SubType(name, age){
+    //继承属性 
+    SuperType.call(this, name);
+    this.age = age;
+}
+SubType.prototype = new SuperType(); 
+SubType.prototype.constructor = SubType; 
+SubType.prototype.sayAge = function(){
+    alert(this.age);
+};
+var instance1 = new SubType("Nicholas", 29);
+```
+
+
+#### 原型式继承
+这就是Object.create方法的原理，基本和下面的实现一样
+```js
+function object(o){
+  function F(){}
+  F.prototype = o;
+  return new F();
+}
+```
+
+#### 寄生式继承
+```js
+function createAnother(original){
+  var clone = object(original)
+  clone.sayName = function (){
+    
+  }
+  return clone
+}
 ```
