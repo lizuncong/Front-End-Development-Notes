@@ -1,12 +1,16 @@
 #### 问题
 1.什么是实例属性？什么是原型属性？区分好实例属性和原型属性，是理解原型对象的关键！！！怎么判断一个属性是在实例中，还是在原型中？      
-2.构造函数和实例是否有直接关系？？       
+2.构造函数和实例是否有直接关系？？instanceof干嘛的？？       
 3.构造函数和原型对象有什么关系？？      
 4.实例和原型对象有什么关系？？？？__proto__是什么???       
 5.in操作符？？？ in可以单独使用，也可以使用for..in..。既可以访问实例中的属性，也可以访问原型中的属性       
 6.Object.keys只能访问实例中的属性       
-7.原型对象的问题是啥？原型对象的最大问题就是由其共享的本性所导致的。       
-8.JavaScript创建对象的方法有哪些？？？
+7.原型对象的问题是啥？原型对象的最大问题就是由其共享的本性所导致的。         
+8.Object.getPrototypeOf, hasOwnProperty          
+8.JavaScript创建对象的方法有哪些？？？工厂模式、构造函数模式、原型模式、组合使用构造函数模式和原型模式、
+寄生构造函数模式是什么鬼？？
+
+
 
 #### 创建对象
 我觉得创建对象，应该以减少代码冗余，节省内存为目的。我们常见的创建对象的方式：      
@@ -189,6 +193,23 @@ var person1 = new Person("Nicholas", 29, "Software Engineer");
 var person2 = new Person("Greg", 27, "Doctor");
 ```
 
+#### 寄生构造函数模式
+???这种模式和工厂模式创建对象的方法一摸一样，差别只在于工厂模式以函数调用的方式返回新对象，寄生构造函数模式使用new 操作符调用方法
+```js
+function Person(name, age, job){
+    var o = new Object();
+    o.name = name;
+    o.age = age;
+    o.job = job;
+    o.sayName = function(){
+        alert(this.name);
+    };
+    return o; 
+}
+// 函数内部的逻辑和工厂模式相同，只是调用方式不同，但返回结果相同
+var friend = new Person("Nicholas", 29, "Software Engineer");
+
+```
 
 #### 关于原型的最后总结
 1.Object.prototype是所有类型(包括Object，以及自定义的构造函数如function Person(){})的对象实例的根。       
