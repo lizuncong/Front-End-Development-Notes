@@ -235,7 +235,7 @@ function Person(name){
 #### 关于原型的最后总结
 1.Object.prototype是所有类型(包括Object，以及自定义的构造函数如function Person(){})的对象实例的根。       
 2.所有类型对象实例都有一个__proto__属性指向该类型的原型对象，比如 let o = new Object()。
-则o必定包含一个__proto__属性指向Object的原型对象Object.prototype。除非手动改变了o.__proto__ = null，此时o的原型就无法识别了。
+则o必定包含一个__proto__属性指向Object的原型对象Object.prototype。除非手动改变了o.__proto__ = null，此时o的原型就无法识别了。       
 3.实例和构造函数之间没有直接的关系，new 构造函数的过程只不过是创建一个新对象的过程。
 实例和构造函数的原型对象之间通过__proto__联系起来。       
 4.那么问题来了，原型对象和构造函数之间总要有个联系吧？不然怎么知道这个原型对象是哪个构造函数的，因此
