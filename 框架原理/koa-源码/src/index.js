@@ -1,4 +1,4 @@
-// const Koa = require('koa');
+const Koa = require('koa');
 // const app = new Koa();
 //
 // app.use(async (ctx, next) => {
@@ -13,11 +13,10 @@ const MiniKoa = require('../lib/index')
 
 const app = new MiniKoa();
 
-app.use((req, res) => {
-    res.writeHead(200)
-    res.end('hello my koa')
+app.use((ctx) => {
+    ctx.body = 'hahah'
 })
 
-app.listen(3000, () => {
+app.listen(3006, () => {
     console.log('listen....')
 })
