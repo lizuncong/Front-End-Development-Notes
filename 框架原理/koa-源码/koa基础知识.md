@@ -62,7 +62,7 @@ console.log(ret);
 
 // 简单版的复合函数，中间件数量有限
 function compose(fn1, fn2){
-    return (...args) => fn2(fn1(...args))
+    return (...args) => fn1(fn2(...args))
 }
 
 // 高级版的复合函数，可以同时复合多个中间件，只能解决同步函数的问题
