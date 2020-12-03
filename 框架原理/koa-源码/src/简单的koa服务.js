@@ -1,23 +1,7 @@
 const Koa = require('koa');
 const util = require('util');
 const app = new Koa();
-class A {
-    constructor(){
-        // if (util.inspect.custom) {
-        //     this[util.inspect.custom] = this.inspect;
-        // }
-    }
-    // toJSON(){
-    //     return 'heihei'
-    // }
-    inspect() {
-        return 'hahahhaaa'
-        return this.toJSON();
-    }
-}
-let a = new A();
-console.log('a....', a)
-console.log('app....', app);
+
 // 错误处理中间件, 洋葱最外层
 app.use(async (ctx, next)=>{
     try {

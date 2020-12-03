@@ -1,9 +1,3 @@
-'use strict';
-
-/**
- * Module dependencies.
- */
-
 const contentDisposition = require('content-disposition');
 const getType = require('cache-content-type');
 const onFinish = require('on-finished');
@@ -19,29 +13,7 @@ const util = require('util');
 const encodeUrl = require('encodeurl');
 const Stream = require('stream');
 
-/**
- * Prototype.
- */
-
 module.exports = {
-
-    /**
-     * Return the request socket.
-     *
-     * @return {Connection}
-     * @api public
-     */
-
-    get socket() {
-        return this.res.socket;
-    },
-
-    /**
-     * Return response header.
-     *
-     * @return {Object}
-     * @api public
-     */
 
     get header() {
         const { res } = this;
@@ -49,35 +21,6 @@ module.exports = {
             ? res.getHeaders()
             : res._headers || {}; // Node < 7.7
     },
-
-    /**
-     * Return response header, alias as response.header
-     *
-     * @return {Object}
-     * @api public
-     */
-
-    get headers() {
-        return this.header;
-    },
-
-    /**
-     * Get response status code.
-     *
-     * @return {Number}
-     * @api public
-     */
-
-    get status() {
-        return this.res.statusCode;
-    },
-
-    /**
-     * Set response status code.
-     *
-     * @param {Number} code
-     * @api public
-     */
 
     set status(code) {
         if (this.headerSent) return;
@@ -90,45 +33,17 @@ module.exports = {
         if (this.body && statuses.empty[code]) this.body = null;
     },
 
-    /**
-     * Get response status message
-     *
-     * @return {String}
-     * @api public
-     */
-
     get message() {
         return this.res.statusMessage || statuses[this.status];
     },
-
-    /**
-     * Set response status message
-     *
-     * @param {String} msg
-     * @api public
-     */
 
     set message(msg) {
         this.res.statusMessage = msg;
     },
 
-    /**
-     * Get response body.
-     *
-     * @return {Mixed}
-     * @api public
-     */
-
     get body() {
         return this._body;
     },
-
-    /**
-     * Set response body.
-     *
-     * @param {String|Buffer|Object|Stream} val
-     * @api public
-     */
 
     set body(val) {
         const original = this._body;
@@ -182,23 +97,9 @@ module.exports = {
         this.type = 'json';
     },
 
-    /**
-     * Set Content-Length field to `n`.
-     *
-     * @param {Number} n
-     * @api public
-     */
-
     set length(n) {
         this.set('Content-Length', n);
     },
-
-    /**
-     * Return parsed response Content-Length when present.
-     *
-     * @return {Number}
-     * @api public
-     */
 
     get length() {
         if (this.has('Content-Length')) {
@@ -212,23 +113,10 @@ module.exports = {
         return Buffer.byteLength(JSON.stringify(body));
     },
 
-    /**
-     * Check if a header has been written to the socket.
-     *
-     * @return {Boolean}
-     * @api public
-     */
 
     get headerSent() {
         return this.res.headersSent;
     },
-
-    /**
-     * Vary on `field`.
-     *
-     * @param {String} field
-     * @api public
-     */
 
     vary(field) {
         if (this.headerSent) return;
