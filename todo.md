@@ -1,5 +1,5 @@
 1. event loop         
-1. promise A+规范及promise的实现[查看](https://www.bilibili.com/video/BV1sZ4y1j71K/?spm_id_from=333.788.videocard.2)，第105min        
+1. promise A+规范及promise的实现[查看]        
 1. 原型链与继承 finished       
 1. 闭包        
 1. 跨域       

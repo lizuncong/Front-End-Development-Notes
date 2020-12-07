@@ -81,7 +81,8 @@ const resolvePromise = (promise2, x, resolve, reject) => {
     resolve(x)
   }
 }
-class MiniPromise{
+
+export default class MiniPromise{
   constructor(executor){
     this.status = PENDING
     this.res = undefined;
