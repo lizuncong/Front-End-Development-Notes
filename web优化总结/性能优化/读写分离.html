@@ -207,24 +207,31 @@
 </div>
 <script>
     let cards = document.getElementsByClassName('content')
-
+    let cardContainers = document.getElementsByClassName('card');
+    let count = 0
     const update = (timestamp) => {
         //demo-01 会引起force reflow的写法
         // for(let i = 0; i < cards.length; i ++){
-        //   cards[i].style.width = ((Math.sin(cards[i].offsetTop + timestamp / 1000) + 1) * 500) + 'px'
+        //     cards[i].style.width = ((Math.sin(cards[i].offsetTop + timestamp / 1000) + 1) * 500) + 'px'
         // }
 
+        // setTimeout(() => {
+        //     console.log('clientWidth...25', cards[25].getBoundingClientRect())
+        //     console.log('clientWidth...', cards[24].clientWidth)
+        //     console.log('clientWidth...', cards[23].clientWidth)
+        //     console.log('clientWidth...', cards[22].clientWidth)
+        //     // cards[25].style.width = '200px';
+        // }, 1000)
         // demo-02 读写分离
-        let widths = []
-        for(let i = 0; i < cards.length; i++){
-            // 通过offsetTop计算修改width
-            widths[i] = ((Math.sin(cards[i].offsetTop + timestamp / 1000) + 1) * 500) + 'px'
-        }
-        for(let i = 0; i < cards.length; i++){
-            cards[i].style.width = widths[i]
-        }
-
-        window.requestAnimationFrame(update)
+        // let widths = []
+        // for(let i = 0; i < cards.length; i++){
+        //     // 通过offsetTop计算修改width
+        //     widths[i] = ((Math.sin(cards[i].offsetTop + timestamp / 1000) + 1) * 500) + 'px'
+        // }
+        // for(let i = 0; i < cards.length; i++){
+        //     cards[i].style.width = widths[i]
+        // }
+        // window.requestAnimationFrame(update)
     }
 
     window.addEventListener('load', update)
