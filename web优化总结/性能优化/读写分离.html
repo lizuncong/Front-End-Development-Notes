@@ -20,6 +20,10 @@
             flex: 1;
             background-color: red;
         }
+        .layer{
+            will-change: transform;
+            transform: translateX(-10px);
+        }
         .content:nth-child(2n){
             background-color: green;
         }
@@ -27,7 +31,7 @@
 </head>
 <body>
 <div class="container">
-    <div class="card"><img src="file:///Users/lizuncong/Desktop/1.jpg" class="content">content</img><div><span>1</span></div></div>
+    <div class="card layer"><img src="file:///Users/lizuncong/Desktop/1.jpg" class="content">content</img><div><span>1</span></div></div>
     <div class="card"><img src="file:///Users/lizuncong/Desktop/1.jpg" class="content">content</img><div><span>1</span></div></div>
     <div class="card"><img src="file:///Users/lizuncong/Desktop/1.jpg" class="content">content</img><div><span>1</span></div></div>
     <div class="card"><img src="file:///Users/lizuncong/Desktop/1.jpg" class="content">content</img><div><span>1</span></div></div>
