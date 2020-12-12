@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=0"
+  />
+  <title>promise</title>
+  <style>
+    .container{
+      display: flex;
+      flex-wrap: wrap;
+    }
+    .card{
+      width: 200px;
+      height: 300px;
+      border: 1px solid black;
+      margin-right: 16px;
+      overflow: hidden;
+      margin-top: 12px;
+    }
+    img{
+      width: 100%;
+      height: 100%;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="card"><img src="file:///Users/lizuncong/Desktop/2.jpg" alt=""></div>
+    <div class="card"><img src="file:///Users/lizuncong/Desktop/2.jpg" alt=""></div>
+    <div class="card"><img src="file:///Users/lizuncong/Desktop/2.jpg" alt=""></div>
+    <div class="card"><img src="file:///Users/lizuncong/Desktop/2.jpg" alt=""></div>
+    <div class="card"><img src="file:///Users/lizuncong/Desktop/2.jpg" alt=""></div>
+    <div class="card"><img src="file:///Users/lizuncong/Desktop/2.jpg" alt=""></div>
+    <div class="card"><img src="file:///Users/lizuncong/Desktop/2.jpg" alt=""></div>
+  </div>
+  <script type="text/javascript">
+    let imgs = document.getElementsByTagName('img')
+    let cards = document.getElementsByClassName('card')
+    let now = new Date().getTime();
+    // while(new Date().getTime() - now < 5000){}
+    function update(){
+
+      // console.log('hah', imgs[1].clientWidth)
+      // imgs[0].style.width = Math.random() * imgs[1].clientWidth + 'px';
+      imgs[0].style.width = Math.random() * 100 + 'px';
+      // cards[0].style.width = Math.random() * 100 + 'px';
+
+      window.requestAnimationFrame(update)
+    }
+
+    window.requestAnimationFrame(update)
+    // window.onload = function(){
+    //   console.log('hahha')
+    //   while(new Date().getTime() - now < 3000){}
+    //   imgs[0].style.width = '10px';
+    //   imgs[1].style.width = '20px';
+    //   imgs[2].style.width = '30px';
+    //   imgs[4].style.width = imgs[5].style.width
+    //   imgs[5].style.width = '40px'
+    //   imgs[4].style.width = imgs[5].style.width
+    //   imgs[3].style.width = '40px';
+    // }
+  </script>
+</body>
+</html>
