@@ -14,3 +14,4 @@
 - 谷歌开发者工具，深入了解一下，[查看](https://developers.google.com/web/tools/chrome-devtools?hl=zh-cn)
 - [关键路径渲染](https://developers.google.com/web/fundamentals/performance/critical-rendering-path)，讲的太他妈好了。
 要多读几遍。
+- [资料](http://fex.baidu.com/blog/2014/05/build-performance-monitor-in-7-days/)
