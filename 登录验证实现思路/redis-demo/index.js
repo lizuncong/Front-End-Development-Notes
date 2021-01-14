@@ -20,8 +20,6 @@ const getCookieExpires = () => {
   return d.toGMTString()
 }
 
-// session数据
-const SESSION_DATA = {}
 
 const server = http.createServer(async (req, res) => {
 
