@@ -5,10 +5,12 @@
 
 ### React和Vue不同之处
 - React社区相对Vue社区更加庞大，更加丰富
-- React需要手动使用PureComponent或者shouldComponentUpdate等方法优化。而Vue组件的依赖是自动追踪的，所以系统能精确知道哪个组件确实需要被
+- 最重要的是，React需要手动使用PureComponent或者shouldComponentUpdate等方法优化。而Vue组件的依赖是自动追踪的，所以系统能精确知道哪个组件确实需要被
   重渲染，不需要开发者手动优化。
 - React使用jsx渲染组件。Vue使用template渲染组件。
 - Vue有丰富的指令体系，React没有。
+- vue有mixin复用组件逻辑，react没有。
+- vue有计算属性和监听器，react则需要在shouldComponentUpdate里面监听，比较麻烦。
 - Vue的路由库和状态管理库都是由官方维护支持且与核心库同步更新的。React则是选择把这些问题交给社区维护。
 
 
