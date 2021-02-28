@@ -11,3 +11,9 @@
 - 如果某个任务执行时间过长，浏览器会推迟渲染。
 - 一帧的生命周期
 ![image](https://github.com/lizuncong/Front-End-Development-Notes/blob/master/resource/npm-01.png)
+
+
+### requestIdleCallback
+- 我们希望快速响应用户，让用户觉得够快，不能阻塞用户的交互。
+- requestIdleCallback使开发者能够在主事件循环上执行后台和低优先级工作，而不会影响延迟关键事件，如动画和输入响应
+- 正常帧任务完成后没超过 `16ms`，说明时间有富余，此时就会执行 requestIdleCallback 里注册的任务。
