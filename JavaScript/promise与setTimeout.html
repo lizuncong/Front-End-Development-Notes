@@ -85,17 +85,17 @@
 
 
   //第一种写法1， 如果是这种写法，那么输出取决于promise的resolve执行时间
-  // let print = async () => {
-  //   for(let i = 0; i < promise.length; i ++) {
-  //     if(i === 1){
-  //       const res  = await new Promise(resolve => setTimeout(() => { resolve(6000)}, 6000))
-  //       console.log('hahah', res)
-  //     }
-  //     promise[i].then(res => {
-  //       console.log('res..', res)
-  //     })
-  //   }
-  // }
+  let print = async () => {
+    for(let i = 0; i < promise.length; i ++) {
+      if(i === 1){
+        const res  = await new Promise(resolve => setTimeout(() => { resolve(6000)}, 6000))
+        console.log('hahah', res)
+      }
+      promise[i].then(res => {
+        console.log('res..', res)
+      })
+    }
+  }
 
 
   // 因为第一种写法实际上相当于这样
