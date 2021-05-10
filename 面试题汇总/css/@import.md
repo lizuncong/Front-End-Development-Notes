@@ -6,6 +6,21 @@
 ### link和@import区别
 - 都是用于引入外部css样式。都支持媒体查询，而且都是会下载文件并根据媒体应用样式，而不是根据媒体选择性下载css文件
 - link是html标签，@import是 ***css样式规则***，需要放在style标签内顶部使用，或者.css文件内顶部使用
+- link会优先下载有效的css，其次下载无效的多媒体查询的css文件。但是@import不论是否有效，都是按@import出现的顺序依次加载。
+- link和@import多媒体上，资源加载的优先级：
+```html
+// 检查浏览器开发者工具 Network，可以发现，link.css优先级被标记为Lowest，link2.css优先级被标记为Highest。
+// 然而，import.css以及import2.css优先级都是Highest
+<link rel="stylesheet" href="link.css" media="print">
+<link rel="stylesheet" href="link2.css">
+<style type="text/css">
+    @import "import.css" print; 
+    @import "import2.css"; 
+    .hd {
+        color: green;
+    }
+</style> 
+```
 - link可以并行下载，但是@import不能并行下载,这点在多媒体查询时尤其突出，假设如下：
 ```html
 <!doctype html>
