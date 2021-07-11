@@ -65,7 +65,7 @@ connect方法接收一个mapStateToProps和一个mapDispatchToProps方法。并�
 
 ### 简单版本的实现：
 
-```js
+```jsx
 let appState = {
   title: {
     text: 'React.js 小书',
