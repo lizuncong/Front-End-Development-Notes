@@ -206,3 +206,9 @@ type ReturnType<T extends (...args: any) => any> = T extends (...args: any) => i
 
 type T0 = ReturnType<() => string> // string
 ```
+
+### 类型兼容性
+以 A = B 为例
+- 协变。B的结构体必须包含A中的所有结构，即B的属性可以比A多，但不能少。
+- 逆变。和协变相反，即B中的所有属性都能在A中找到，可以比A的少。
+- 双向协变。没有规则，B中的属性可以比A多，也可以比A少。
