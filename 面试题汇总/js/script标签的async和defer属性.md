@@ -3,6 +3,11 @@
 
 对于外部脚本 `<script src="..."></script>`也是一样的，浏览器必须等待脚本下载完并执行结束后，才能继续往下构建DOM树。
 
+### async 和 defer的区别
+- async 加载(fetch)完成后立即执行 (execution)，并不会保证相邻的两个async脚本的执行顺序
+- defer 加载(fetch)完成后延迟到 DOM 解析完成后才会执行(execution)**，但会在事件 DomContentLoaded 之前。同时会保证相邻的两个
+defer脚本的执行顺序
+
 ### script标签执行的几种方式
 async和defer属性都是只用于加载外部脚本
 - async = "async"。The script is executed asynchronously with the rest of the page (the script will be executed while the page continues the parsing)，
