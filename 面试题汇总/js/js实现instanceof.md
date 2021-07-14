@@ -4,6 +4,7 @@ function myInstanceof (l, r) {
   var R = r.prototype
   while (l.__proto__) {
     if (l.__proto__ === R) return true
+    l = l.__proto__
   }
   return false
 }
