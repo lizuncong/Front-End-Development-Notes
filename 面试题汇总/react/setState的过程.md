@@ -22,3 +22,10 @@ var update = {
 当我们调用setState时，会调用enqueueSetState方法，这个方法接收组件的实例，setState的第一个参数payload，以及第二个参数
 callback，然后函数里面会根据实例获取对应的fiber节点，计算expirationTime，根据expirationTime创建一个update对象，
 然后调用enqueueUpdate，将update添加到fiber的updateQueue队列中，最后调用scheduleWork剩下的就交给调度系统。
+
+
+### setState的异步还是同步？
+- 在合成事件中，setState都是异步的。因为这些事件由react托管，事件执行时由react负责上下文的管理，比如设置
+  isBatchingUpdate为true表示这是异步更新
+- 在原生的事件中，比如调用addEventListener或者在setTimeout，setInterval或者promise回调中，setState是同步的
+  因为在这些回调中，setState执行的上下文并不是由react管理了。
