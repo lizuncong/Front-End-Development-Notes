@@ -1,3 +1,28 @@
+### 从输入URL地址到看到页面，中间都经历了啥
+面试时如下回答即可：
+- URL解析，域名解析。涉及到DNS寻址的过程，获取对应的服务器IP地址
+- 缓存检查。首先检查强缓存，其次是协商缓存。
+    + 如果强缓存生效，则直接从浏览器缓存获取资源
+    + 如果强缓存失效，则浏览器向服务器发起一个http请求，当然这中间还有一个tcp三次握手的一个过程。建立连接后，服务器检查资源是否更改，如果没有更改，则返回304告诉
+      浏览器读取缓存，否则响应200并发送资源文件给浏览器
+- 拿到资源文件后，浏览器开始解析并构建dom树和cssom树。这中间又涉及两种过程。
+    + 如果有js脚本，那么cssom树的构建会阻塞js的执行，js的执行会阻塞dom树的构建
+    + 如果没有js脚本，那么cssom树的构建和dom树的构建是并行的，当然大部分网页都会包含js脚本。
+_ 有了cssom树和dom树后，就开始构建render tree。render tree并不是和dom树--对应的，render tree并不包含display:none等元素，以及style，link，head这些标签。
+- 构建完render tree，布局（Layout，也叫重排）阶段会为每个节点计算精确的位置和大小信息。
+- 布局阶段完成后，就是绘制阶段（paint），将各个节点绘制到屏幕上，页面就呈现出来了。
+
+
+### 关于URL解析
+URL解析涉及到一个URL编码的问题，假设有这么一个url：http://www.baidu.com/api/?name=测试&from=http://www.google.com/。这个URL在解析的时候
+会出现问题。因此需要对URL进行编码
+- encodeURI / decodeURI。对整个URL的编码，处理空格/中文。encodeURI(url)
+- encodeURIComponent / decodeURIComponent。主要对传递的参数信息编码。
+`http://www.baidu.com/api/?name=${encodeURIComponent('测试')}&from=${encodeURIComponent('http://www.google.com/')}`
+
+
+======================================以下内容抄自谷歌开发者文档，了解即可，最好熟悉==================================
+
 ### 构建对象模型
 这个过程包括文档对象模型(DOM)以及CSS对象模型(CSSOM)。
 
