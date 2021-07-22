@@ -40,13 +40,15 @@ let demo = {
     setTimeout(function(){
       console.log('2..',this)
     }, 1000)
-    
+
     setTimeout(() => {
       console.log('3..',this);
     }, 1000)
   }
 }
 demo.fn();
+let fn = demo.fn
+fn()
 
 // 第五种情况
 function func(x, y){
@@ -67,6 +69,19 @@ document.body.addEventListener('click', func.bind(obj, 10, 20))
 ````
 
 ### 手撕call/apply/bind源码
+call，apply，bing用法示例
+```javascript
+function print(address, des){
+    console.log(`my name is ${this.name}, i am ${this.age} years old. I am from ${address}, will go to ${des}`)
+    console.log('this...', this)
+}
+let mike = { name: 'mike', age: 25 }
+print.call(mike,'成都','上海') // my name is mike, i am 25 years old. I am from 成都, will go to 上海
+print.apply(mike,['成都','上海']) // my name is mike, i am 25 years old. I am from 成都, will go to 上海
+print.bind(mike,'成都','上海')() // my name is mike, i am 25 years old. I am from 成都, will go to 上海
+print.bind(mike,['成都','上海'])() // my name is mike, i am 25 years old. I am from 成都,上海, will go to undefined
+```
+
 ```js
 // call的原理就是利用'.'确定this机制
 Function.prototype.call = function call(context, ...params){
@@ -76,7 +91,7 @@ Function.prototype.call = function call(context, ...params){
   context == null ? context = window : null;
   // 如果context是个基本类型，则需要转换一下
   !/^(object|function)$/i.test(typeof context) ? context = Object(context) : null;
-  
+
   context[key] = self;
   result = context[key](...params);
   delete context[key];
