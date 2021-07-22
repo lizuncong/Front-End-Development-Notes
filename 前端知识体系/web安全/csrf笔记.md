@@ -21,3 +21,9 @@ post action。这个请求会鞋带上我们的cookie。这里使用iframe的原
 
 ### CSRF攻击防御
 - 禁止第三方网站携带cookies。后端设置cookies的samesite属性，samesite可取得值为 'strict'，'Lax'，'None'。sameSite有兼容性问题，目前只有谷歌支持
+- 在前端页面加入验证信息，比如验证码，验证码这种方式还是比较有效果的，只是用户体验不太好。
+- token。攻击者发起请求的时候无法获取到这个token，必须要在我们自己网站的页面发起的请求才有效。后端生成一个token，然后将这个token
+放到cookie中以及前端页面的表单中，前端提交表单的时候，将token作为表单值一并提交给后端，由后端比对前端提交的token是否和cookie中的
+token一致，不一致则提示错误，一致则执行后端逻辑。
+
+- csrf有个明显的特征，就是请求头中会携带referer，指向B网站。因此可以通过验证referer是来自自己的网站还是别人的网站
