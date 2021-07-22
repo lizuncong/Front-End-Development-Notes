@@ -15,3 +15,10 @@
 (name: userId=2, path: /user)
 如果访问页面localhost:7001/，那么我们只能看得到这两个cookie：(name: csrfToken, path: /)，(name: userId=1, path: /)
 - http only。设置为true，则前端不能通过js获取cookie
+
+
+### cookies作用
+- 存储个性化设置
+- 存储未登录时用户唯一标识
+- 存储已登录用户的凭证
+- 存储其他业务数据
