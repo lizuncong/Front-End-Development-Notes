@@ -52,3 +52,8 @@ $LazyMan.prototype.sleep = function(time){
 }
 ```
 
+
+### 第二种实现
+```javascript
+
+```
