@@ -55,5 +55,30 @@ $LazyMan.prototype.sleep = function(time){
 
 ### 第二种实现
 ```javascript
+function LazyMan(name){
+  return new $LazyMan(name)
+}
+function $LazyMan(name){
+  this._name = name;
+  this._tasks = []
+  console.log('new a lazyMan...', name)
+}
 
+$LazyMan.prototype.eat = (what) => {
+    const task = () => {
+        console.log('eat:', what)
+    }
+    this._tasks.push(task)
+    return this
+}
+
+$LazyMan.prototype.sleep = (time) => {
+    const task = () => {
+        setTimeout(() => {
+            console.log('sleep:', time)
+        }, time * 1000)
+    }
+    this._tasks.push(task)
+    return this
+}
 ```
