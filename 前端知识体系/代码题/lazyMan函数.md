@@ -62,6 +62,9 @@ function $LazyMan(name){
   this._name = name;
   this._tasks = []
   console.log('new a lazyMan...', name)
+  setTimeout(() => {
+    this.next()
+  }, 0)
 }
 
 $LazyMan.prototype.eat = (what) => {
@@ -76,9 +79,18 @@ $LazyMan.prototype.sleep = (time) => {
     const task = () => {
         setTimeout(() => {
             console.log('sleep:', time)
+            this.next()
         }, time * 1000)
     }
     this._tasks.push(task)
+    return this
+}
+
+$LazyMan.prototype.next = () => {
+    const task = this._tasks.shift()
+    if(task){
+      task()
+    }
     return this
 }
 ```
