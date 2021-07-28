@@ -50,10 +50,10 @@ WebSocket的消息有两种，一种是文本，一种是二进制数据。
 安全的WebSocket连接机制和HTTPS类似。首先，浏览器使用`wss://xxx`创建WebSocket连接时，会先通过HTTPS创建安全的连接，然后，该HTTPS连接升级为WebSocket连接，底层通信走的仍然是安全的`SSL/TLS`协议。
 
 
-### 简单的代码实现
+### WebSocket与HTTP的比较
+- 地址协议不同，websocket是ws://或者wss://，http是http://或者https://。同时，websocket地址不支持锚，即hash
+- http请求是通过浏览器的xhr api发起
+- WebSocket 和 HTTP 风格的地址使用相同的地址规则。ws 是未加密且默认是 80 端口，而 wss 要求 TSL 加密且默认 443 端口
 
-服务端
-
-```js
-
-```
+### websocket与HTTP2的比较
+http2的服务器推送用来让服务器主动向客户端缓存发送数据，而不是客户端程序本身发送数据，一般用来推送静态资源。
