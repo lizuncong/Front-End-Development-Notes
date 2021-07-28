@@ -22,3 +22,19 @@
 - 存储未登录时用户唯一标识
 - 存储已登录用户的凭证
 - 存储其他业务数据
+
+
+### Cookies和XSS的关系
+- XSS可能偷取Cookies。可以通过设置cookie的http only为true防止
+
+
+### Cookies和CSRF的关系
+- CSRF利用了用户Cookies，但是攻击站点无法读写Cookies
+
+
+### Cookies安全策略
+- 签名防篡改
+- 私有变换(加密)
+- http-only(防止XSS)
+- secure
+- same-site(防止CSRF)
