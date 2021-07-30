@@ -1,4 +1,9 @@
 ### http请求头字段
+- 跨域相关的
+
+- 缓存相关的
+
+
 #### 请求字段
 - Accept	能够接受的回应内容类型（Content-Types）。参见内容协商。	Accept: text/plain	常设
 - Accept-Charset	能够接受的字符集	Accept-Charset: utf-8	常设
