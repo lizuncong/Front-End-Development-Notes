@@ -23,6 +23,8 @@
 
 甚至，攻击者嵌入自己的脚本，<script src="http://my.attack.js"></script>
 
+防御：可以对用户输入进行转义，替换尖括号即可完成转义，将<和>转换成"&lt;"，"&gt;"
+
 
 ### HTML属性
 ```html
@@ -59,7 +61,6 @@ http://localhost:3001/?data=hello";alert(1)"
       img-src，manifest-src，media-src，object-src，script-src，style-src，worker-src
 
       
-    + 如果是HTML内容 <div>{content}</div>，可以对用户输入进行转义，替换尖括号即可完成转义，将<和>转换成&lt
    
     + HTML属性，<img src={src}>，这种攻击原理是通过构造src关闭"，比如src = '/images" onerror="alert(2)'，因此转义"号，即把"号转成&quto;即可防御
     
