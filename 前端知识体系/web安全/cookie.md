@@ -21,9 +21,14 @@
 - 限制访问Cookie
     + Secure：标记为 Secure 的 Cookie 只应通过被 HTTPS 协议加密过的请求发送给服务端。可以预防中间人攻击
     + HttpOnly：JavaScript Document.cookie API 无法访问带有 HttpOnly 属性的cookie。可以预防XSS攻击
+    + SameSite：允许服务器要求某个 cookie 在跨站请求时不会被发送。可以预防CSRF攻击
 - Cookie的作用域。`Domain` 和 `Path` 属性决定了Cookie 应该发送给哪些URL。
     + Domain。Domain 指定了哪些主机可以接受 Cookie。如果不指定，默认为 origin，不包含子域名。如果指定了Domain，则一般包含子域名。例如，如果设置 Domain=mozilla.org，则 Cookie 也包含在子域名中（如developer.mozilla.org）。
     > 注意：当前大多数浏览器遵循 RFC 6265，设置 Domain 时 不需要加前导点。浏览器不遵循该规范，则需要加前导点，例如：Domain=.mozilla.org
+    + Path。指定了主机下的哪些路径可以接受 Cookie（该 URL 路径必须存在于请求 URL 中）。例如，设置 Path=/docs，则以下地址都会匹配：/docs，
+    /docs/Web/，/docs/Web/HTTP，这几个路径的页面都可以访问到cookie。'/'路径的页面就访问不到cookie
+
+
 
 ### cookies特性
 - 前端数据存储
@@ -32,31 +37,6 @@
 - 前端可读写
 - 遵守同源策略
 
-
-### cookies属性
-- 域名。不同域名，cookie不能混用
-- 有效期
-- 路径。指cookie可以作用于网站的哪一级，具体而言就是url上的层级，比如可以为不同的url设置不同的cookie，这样只有当这个层级的
-页面被访问的时候，cookie才可以使用。如果访问的是其他页面，就获取不了这个cookie。
-比如在localhost:7001/user下面有如下几个cookie：(name: aaa, path: /user)，(name: csrfToken, path: /)，(name: userId=1, path: /)，
-(name: userId=2, path: /user)
-如果访问页面localhost:7001/，那么我们只能看得到这两个cookie：(name: csrfToken, path: /)，(name: userId=1, path: /)
-- http only。设置为true，则前端不能通过js获取cookie
-
-
-### cookies作用
-- 存储个性化设置
-- 存储未登录时用户唯一标识
-- 存储已登录用户的凭证
-- 存储其他业务数据
-
-
-### Cookies和XSS的关系
-- XSS可能偷取Cookies。可以通过设置cookie的http only为true防止
-
-
-### Cookies和CSRF的关系
-- CSRF利用了用户Cookies，但是攻击站点无法读写Cookies
 
 
 ### Cookies安全策略
