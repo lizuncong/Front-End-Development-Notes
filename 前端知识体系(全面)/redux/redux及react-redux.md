@@ -28,7 +28,7 @@ store.dispatch(...)
 ```
 
 
-### 面试题：说说对redux和react redux的理解
+### 对redux和react redux的理解
 1. 先从redux说起
 
 redux是一种架构思想，与框架无关。redux最主要的三个概念就是Store，Reducers，Actions。
