@@ -15,5 +15,5 @@
 
 ### 源码上
 - loader。loader只是一个简单的函数，接收源码字符串以及options。
-- plugin。plugin是一个类，其中必须实现一个apply方法，apply方法接收webpack的compile以及compilation对象，从中可以
+- plugin。plugin是一个类，其中必须实现一个apply方法，apply方法接收webpack的compiler对象，从中可以
 定义插件自己的钩子或者订阅其他插件的钩子
