@@ -1,2 +1,6 @@
 ### WebRTC
-WebRTC (Web Real-Time Communications) 是一项实时通讯技术，它允许网络应用或者站点，在不借助中间媒介的情况下，建立浏览器之间点对点（Peer-to-Peer）的连接，实现视频流和（或）音频流或者其他任意数据的传输。[参考文章](https://developer.mozilla.org/zh-CN/docs/Web/API/WebRTC_API)
+WebRTC 主要允许网页程序创建点对点通信，我们将会在随后的章节中进行介绍。我们将讨论如下主题，以便向开发者全面介绍 WebRTC 的内部构造：
+- 点对点通信
+- 防火墙和 NAT 穿透
+- 信号，会话及协议
+- WebRTC 接口
