@@ -19,3 +19,19 @@
 IDE一样组织目录。方便阅读。如下：
 
 ![image](https://github.com/lizuncong/Front-End-Development-Notes/blob/master/resource/octotree.png)
+
+
+掌握WebSocket，SSE，WebRTC，Web Worker，Service Worker，PWA，了解HTTP，HTTPS，TCP，UDP，HTTP2服务器推送，了解WebAssembly
+
+掌握Promise，跨域，Async Await，Generator，Web Component，熟悉typescript
+
+掌握webpack三大核心机制：tapable，loader，plugin，了解webpack热更新原理，熟悉babel编译原理及其插件开发
+
+掌握react，Fiber，React SSR，redux原理，Koa原理，React Router原理
+
+掌握常见Web安全漏洞及防御技巧
+
+熟悉浏览器渲染各阶段及性能优化手段
+
+
+
