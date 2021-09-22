@@ -26,4 +26,4 @@
 ```
 svg中通过`mask="url(#mask-1)"`引用了 id为`mask-1` 的 `mask` 蒙版。由于页面中不小心引入了多个相同的svg，并且svg下面的`mask` id重复了。
 碰巧的是，刚好第一个svg的`style="display:none"`。造成后面所有的svg下面的 `mask="url(#mask-1)"`都没有显示mask蒙版，图标线条变粗。因为此时`mask="url(#mask-1)"`引用的
-是第一个id为`mask-1`的`mask`。
+是第一个id为`mask-1`的`mask`。就好比通过`document.getElementById('mask-1')`获取到的永远是出现在dom树中的第一个元素。
