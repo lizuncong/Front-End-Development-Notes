@@ -76,15 +76,18 @@ onmessage = function(e) {
 }
 ```
 
-####共享Worker
+#### 共享worker
 - `共享Worker`可以降低系统的资源使用。通过`new SharedWorker(url);` 创建`共享worker`时，只要url相同，那么所有这些脚本共用一个worker
 - 端口（port）。由于`共享worker`可以与站点的多个页面连接，因此需要通过`port`识别消息来自哪个页面。
 - connect事件。与`专用worker`不同，`共享worker`内部必须要额外处理`connect`事件。
 - 遵循同源协议。如果要使`共享worker`连接到多个不同的页面，这些页面必须是同源的（相同的协议、host 以及端口）
 - 如果显示调用`port.addEventListener`监听`message`事件，则必须调用`port.start()`
 - 问题比较大的是，在本地开发时，只要调用过一次`new SharedWorker(url);`创建一个`共享worker`，这个worker会一直存在，即使本地开发时修改了worker文件，浏览器
-  不会再创建新的worker，依旧使用的是第一次创建的worker，因此如果文件有改动，可以手动终止worker
+  不会再创建新的worker，依旧使用的是第一次创建的worker，因此如果文件有改动，可以手动终止worker。可以通过在浏览器地址栏输入`chrome://inspect/#workers`
+  查看都有哪些worker
 - 检查开发者工具Networker，发现并没有对worker.js文件的请求，这是为啥？
+- 在`共享worker`中输出`console.log`在浏览器开发者工具看不到输出的信息，那么如何查看worker中输出的信息？可以通过在浏览器地址栏输入`chrome://inspect/#workers`，
+  然后选择想要调试的worker，点击`inspect`按钮。此时弹出窗口，这个窗口就是共享worker调试用的。同时在这个窗口的Network也能看到加载的worker.js脚本
 
 index.html：
 ```html
@@ -99,8 +102,10 @@ index.html：
   <body>
     <div>页面1</div>
     <button id="btn">click</button>
+    <button id="terminate">终止worker</button>
     <script>
         const btn = document.querySelector('#btn');
+        const terminate = document.querySelector('#terminate');
         const myWorker = new SharedWorker("./myWorker.js");
         const data = { number: 10 }
         myWorker.port.onmessage = function(e) {
@@ -109,6 +114,11 @@ index.html：
         btn.onclick = function(){
             console.log('【页面1】click：',myWorker)
             myWorker.port.postMessage(data);
+        }
+        terminate.onclick = function(){
+            console.log('【页面1】终止')
+            myWorker.port.close()
+            // myWorker.port.postMessage({type: 'terminate'});
         }
     </script>
   </body>
@@ -144,7 +154,7 @@ index2.html：
 ```
 myWorker.js：
 ```javascript
-const clients = [];
+const clients = []; // 要注意断开连接时清除port，否则很容易内存泄漏，应谨慎使用
 onconnect = function(e) {
     const port = e.ports[0];
     clients.push(port)
@@ -155,8 +165,10 @@ onconnect = function(e) {
         console.log('worker接收到主线程的信息：', data)
         if(data.type === 'BROADCAST'){
             broadCast(data)
+        } else if(data.type === 'terminate'){
+            close();
         } else {
-            data.sum = data.number + data.number + 12;
+            data.sum = data.number + data.number + 2;
             port.postMessage(data);
         }
     }
