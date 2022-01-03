@@ -51,7 +51,7 @@ requestIdleCallback接收一个函数做为参数，这个函数会在每一帧�
 如果组件层级很深，这个过程就会占用主线程很久，导致页面卡顿。
 
 
-### 面试官：来说说Fibers
+### 说说Fibers
 在React16以前，React.createElement创建出来的virtual dom是一种树结构的数据，然后react.render方法会递归的调用，创建dom，
 然后添加到dom容器中。这个过程是不可中断的，如果vdom树很深，就会长时间占用主线程导致页面卡顿。
 
