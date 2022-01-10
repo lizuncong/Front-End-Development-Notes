@@ -57,8 +57,14 @@ Google 还会通过其他网页上的链接找到您的网页
 ### 添加结构化数据标记
 结构化数据是可添加到网站网页中的代码，用于向搜索引擎描述内容，以便搜索引擎更好地了解网页上的信息
 
+[Google搜索支持以下格式的结构化数据](https://developers.google.com/search/docs/advanced/structured-data/intro-structured-data#structured-data-format)
+   - [JSON-LD](https://json-ld.org/)
+   - [微数据](https://html.spec.whatwg.org/multipage/)。这篇文章有更详细的介绍https://schema.org/docs/gs.html。按照谷歌官方说法，微数据使用的是schema.org协议，但是并不是协议里面的属性都是必须的，谷歌建议按照谷歌官方文档的说明来，比如logo结构化数据必须完全参考谷歌文档：https://developers.google.com/search/docs/advanced/structured-data/logo#structured-data-type-definitions并且按照里面所要求的必须属性实现
+   - [RDFa](https://rdfa.info/)
+LOGO结构化数据必需的属性参考：[https://developers.google.com/search/docs/advanced/structured-data/logo#structured-data-type-definitions](LOGO结构化数据必需的属性参考：https://developers.google.com/search/docs/advanced/structured-data/logo#structured-data-type-definitions。其他推荐属性可加可不加。)。其他推荐属性可加可不加。
 
-
+### 语义化html标签
+### 图片、视频
 ### 常规指南
 - 保持简单的网址结构
   + 使用连字符而不是下划线连接关键字
