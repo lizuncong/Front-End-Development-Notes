@@ -46,5 +46,6 @@ git merge proA-master --allow-unrelated-histories
 
 ### 方法三，git pull 的方式
 ```shell
-git pull https://github.com/lizuncong/mini-tapable.git dev
+git pull https://github.com/lizuncong/pro-a.git dev
 ```
+dev是需要同步的分支名称
