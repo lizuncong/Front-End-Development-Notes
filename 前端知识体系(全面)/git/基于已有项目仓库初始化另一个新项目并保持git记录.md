@@ -49,3 +49,5 @@ git merge proA-master --allow-unrelated-histories
 git pull https://github.com/lizuncong/pro-a.git dev
 ```
 dev是需要同步的分支名称
+
+这种方式同步简单，并且还能保留项目A的历史提交记录，同时还不会有多余的项目A的分支
