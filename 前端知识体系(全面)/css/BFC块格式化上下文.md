@@ -1,17 +1,19 @@
 ### BFC
 Block Formatting Context 块格式化上下文。
 
-用于影响内部布局的。
+用于影响内部布局的。块格式化上下文对浮动定位(float)与清除浮动(clear)都很重要
+
+*** 浮动定位和清除浮动时只会应用于同一个BFC内的元素 ***
 
 ### 开启BFC的方式
-常见的开启BFC的方式有：
-- <html>元素
-- 浮动
-- absolute或者fixed定位的元素
-- display: inline-block的元素
-- display： flex的元素
-- display: grid的元素
-- display: flow-root
+常见的创建块格式化上下文的方式：
+- html元素
+- 浮动元素
+- absolute、fixed定位的元素
+- overflow不为visible的块元素
+- display为`inline-block`或者`flow-root`的元素
+- display为`flex`或`inline-flex`元素的直接子元素
+- display为`grid`或`inline-grid`元素的直接子元素
 
 ### 开启了BFC的元素的三个特性
 - 不会和后代元素发生marin collapse（外边距折叠，外边距合并）
