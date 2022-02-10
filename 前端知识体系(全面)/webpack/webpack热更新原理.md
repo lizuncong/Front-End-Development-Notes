@@ -1,0 +1,1 @@
+[已迁移到mini-webpack-dev-server仓库，点击查看](https://github.com/lizuncong/mini-webpack-dev-server/blob/master/readme.md)
