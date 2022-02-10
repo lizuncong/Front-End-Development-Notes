@@ -81,3 +81,14 @@ LOGO结构化数据必需的属性参考：[https://developers.google.com/search
 可采取一些措施来主动解决内容重复的问题，并确保访问者可看到您希望他们看到的内容
   + 使用 301 重定向
   + 使用 rel="canonical" link 元素
+
+
+### 改善抓取质量
+- 提交站点地图
+- 网页路径要简单易懂
+- 使用`hreflang`指向其他语言版本的网页。
+```html
+<link rel="alternate" href="https://example.com/" hreflang="x-default" />
+```
+- 使用`rel="canonical"`明确指出规范网页和备用网页
+- 使用网址检查工具检查实际网页，确保谷歌能够正常访问并呈现网页
