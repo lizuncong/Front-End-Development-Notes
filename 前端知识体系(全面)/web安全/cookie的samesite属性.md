@@ -14,10 +14,10 @@
 在谷歌80以前的版本中，samesite默认为None，即允许第三方网站携带我们自己网站的cookie。假设第三方网站通过img标签发起一个对我们网站的请求，那么这个请求会携带上我们网站的cookie，请求能够正常发起，这是有安全隐患的，这也是CSRF(跨站伪站点请求)的基本原理。于是，新版浏览器中默认将samesite设置为Lax，即不允许跨站携带cookie，防止CSRF攻击。
 
 #### 问题分析
-1.由于请求接口使用的是线上的接口https://demo.mysite.com/leproxy/api/product/list/sortation/info/batch/query?id=123，域名为demo.mysite.com，和demo预览页的域名一致。
-2.这个接口需要携带一个f_ds_info cookie到后端，才能正常获取到数据。这个cookie种在demo.mysite.com域名下。
-3.测试环境的域名admin.mysitestg.com和接口请求的二级域名不一致，所以这是一个跨站请求，cookie没有携带过去
-4.正式环境域名admin.mysite.com，虽然和demo.mysite.com不同源，但是二级域名相同，因此这是一个同站请求，cookie允许携带给后端
+- 由于请求接口使用的是线上的接口https://demo.mysite.com/leproxy/api/product/list/sortation/info/batch/query?id=123，域名为demo.mysite.com，和demo预览页的域名一致。
+- 这个接口需要携带一个f_ds_info cookie到后端，才能正常获取到数据。这个cookie种在demo.mysite.com域名下。
+- 测试环境的域名admin.mysitestg.com和接口请求的二级域名不一致，所以这是一个跨站请求，cookie没有携带过去
+- 正式环境域名admin.mysite.com，虽然和demo.mysite.com不同源，但是二级域名相同，因此这是一个同站请求，cookie允许携带给后端
 
 ### 什么是samesite(同站)，什么是cross site(跨站)
 如果两个URL的`protocol`、`port`和`host`都相同的话，则这两个URL是`同源`。不同源则一定跨域，但不一定跨站！！！
