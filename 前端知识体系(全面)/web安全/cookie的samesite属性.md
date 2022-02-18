@@ -46,5 +46,5 @@
 - None允许跨站携带cookie。如果将samesite设置为None，前提是必须同时设置Secure属性（Cookie只能通过 HTTPS 协议发送），否则无效。
 
 ### 参考链接
-[samesite cookie的解释](https://web.dev/samesite-cookies-explained/)
-[samesite 取值比较](https://www.ruanyifeng.com/blog/2019/09/cookie-samesite.html)
+- [samesite cookie的解释](https://web.dev/samesite-cookies-explained/)
+- [samesite 取值比较](https://www.ruanyifeng.com/blog/2019/09/cookie-samesite.html)
