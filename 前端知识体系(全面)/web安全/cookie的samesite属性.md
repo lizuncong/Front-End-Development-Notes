@@ -45,6 +45,15 @@
 
 - None允许跨站携带cookie。如果将samesite设置为None，前提是必须同时设置Secure属性（Cookie只能通过 HTTPS 协议发送），否则无效。
 
+
+### 建议
+一般而言，对于业务来说是建议设置SameSite属性值为Lax的，因为Strict太影响用户体验。
+
+Lax对GET请求是放行的，因此整改的重点在于要严格区分GET和POST的职责，即GET只能进行一些查询类或导航类的访问、而不是进行状态更改，要执行一些更改类的表单操作就必须交由POST来处理，在这种场景下Lax的设置才会将风险降到较低。这是因为：
+
+- 如果用GET携带参数访问，其中的参数值将会记录在浏览器历史、Web日志以及访问其他页面的Referer头字段中；
+- Cookie的SameSite属性设置为Lax的GET请求还是会被攻击者利用进行CSRF攻击，且GET型CSRF攻击难度低；
+
 ### 参考链接
 - [samesite cookie的解释](https://web.dev/samesite-cookies-explained/)
 - [samesite 取值比较](https://www.ruanyifeng.com/blog/2019/09/cookie-samesite.html)
