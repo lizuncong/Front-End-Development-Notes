@@ -58,3 +58,7 @@ HTTPS连接需要先经过三次TCP握手，然后才是TLS连接的建立。TLS
 - TLS 本身也是基于有序传输设计的协议，融合在 TCP 中需要做大量的重新设计；
 - 出于安全的考虑，TCP 的 SYN 报文被设计为不能携带数据，如果要携带 ClientHello，则需要对协议栈做大量改动，而由于 TCP 是一个内核协议栈，改动和迭代是一个痛苦且难以落地的过程；
 - 新的协议难以和传统 TCP 兼容，大面积使用的可能性也很低。
+
+
+### 参考链接
+[https://mp.weixin.qq.com/s/ulrLwhzt327SJ3EDSMKwDg](https://mp.weixin.qq.com/s/ulrLwhzt327SJ3EDSMKwDg)
