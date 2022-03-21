@@ -12,6 +12,7 @@
 - [segmentfault](https://segmentfault.com/)
 - [高性能浏览器网络](https://hpbn.co/)
 - [BFE](https://bigfrontend.dev/)
+- [React源码解析](https://programmer.help/blogs/react-source-code-analysis-2-design-concept-of-react.html)
 - 另外还有掘金、简书等
 
 ***建议优先阅读谷歌开发者文档***
