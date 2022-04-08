@@ -36,7 +36,7 @@ postman看下：
 ![image](https://github.com/lizuncong/Front-End-Development-Notes/blob/master/resource/referer-02.jpg)
 
 referer设置为用户的域名：
-![image](https://github.com/lizuncong/Front-End-Development-Notes/blob/master/resource/referer-03.jpg)
+![image](https://github.com/lizuncong/Front-End-Development-Notes/blob/master/resource/referer.jpg)
 
 postman看到正常响应了图片内容
 
