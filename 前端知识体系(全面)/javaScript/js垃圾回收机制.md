@@ -107,9 +107,20 @@ node --max-new-space-size=1024 app.js 单位是kb
   + TO的空间使用占比超过25%，或者超大对象
 ![image](https://github.com/lizuncong/Front-End-Development-Notes/blob/master/resource/memory-02.jpg)
 
+### 2.3 老生代
+- 老生代使用的垃圾回收算法：mark-sweep(标记清除)和mark-compact(标记整理)
+  + mark-sweep
+    + 标记活着的对象，随后清除在标记阶段没有标记的对象，只清理死亡对象
+    + 问题在于清除后会出现内存不连续的情况，这种内存碎片会对后续的内存分配产生影响
+    + 如果要分配一个大对象，碎片空间无法分配
+  + mark-compact
+    + 标记死亡后会对对象进行整理，活着的对象向左移动，移动完成后直接清理掉边界外的内存
+- 老生代空间大，大部分都是活着的对象，GC耗时比较长
+- 在GC期间无法响应，STOP-THE-WORLD
+- V8有一个优化方案，增量处理，把一个大暂停换成多个小暂停 INCREMENT_GC
+![image](https://github.com/lizuncong/Front-End-Development-Notes/blob/master/resource/memory-03.jpg)
 
-
-
+![image](https://github.com/lizuncong/Front-End-Development-Notes/blob/master/resource/memory-04.jpg)
 
 ## 参考链接
 - [https://v8.dev/blog/trash-talk](https://v8.dev/blog/trash-talk)
