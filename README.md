@@ -1,4 +1,5 @@
 ### 踩坑系列
+按debug难度从高到低排列
 - [【难】谷歌翻译错误地将繁体字检测成简体字](https://github.com/lizuncong/Front-End-Development-Notes/blob/master/%E8%B8%A9%E5%9D%91%E7%B3%BB%E5%88%97/%E8%B0%B7%E6%AD%8C%E7%BF%BB%E8%AF%91.md)
 - [【难】从height百分比看浏览器的怪异模式](https://github.com/lizuncong/Front-End-Development-Notes/blob/master/%E8%B8%A9%E5%9D%91%E7%B3%BB%E5%88%97/%E4%BB%8Eheight%E7%99%BE%E5%88%86%E6%AF%94%E7%9C%8B%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E6%80%AA%E5%BC%82%E6%A8%A1%E5%BC%8F.md)
 - [【难】lazysizes插件getElementByClass查询结果实时性问题](https://github.com/lizuncong/Front-End-Development-Notes/blob/master/%E8%B8%A9%E5%9D%91%E7%B3%BB%E5%88%97/getElementByClass%E6%9F%A5%E8%AF%A2%E7%BB%93%E6%9E%9C%E5%AE%9E%E6%97%B6%E6%80%A7%E9%97%AE%E9%A2%98.md)
@@ -15,6 +16,25 @@
 - [【低】移动端键盘顶起页面的问题](https://github.com/lizuncong/Front-End-Development-Notes/blob/master/%E8%B8%A9%E5%9D%91%E7%B3%BB%E5%88%97/%E7%A7%BB%E5%8A%A8%E7%AB%AF%E9%94%AE%E7%9B%98%E9%A1%B6%E8%B5%B7%E9%A1%B5%E9%9D%A2%E7%9A%84%E9%97%AE%E9%A2%98.md)
 
 
+### 网络
+- [DNS寻址](https://github.com/lizuncong/Front-End-Development-Notes/blob/master/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB(%E5%85%A8%E9%9D%A2)/%E7%BD%91%E7%BB%9C/DNS%E5%AF%BB%E5%9D%80.md)
+- [https简介及与http的区别](https://github.com/lizuncong/Front-End-Development-Notes/blob/master/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB(%E5%85%A8%E9%9D%A2)/%E7%BD%91%E7%BB%9C/https%E7%AE%80%E4%BB%8B%E5%8F%8A%E4%B8%8Ehttp%E7%9A%84%E5%8C%BA%E5%88%AB.md)
+- [http协议及各版本的差别](https://github.com/lizuncong/Front-End-Development-Notes/blob/master/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB(%E5%85%A8%E9%9D%A2)/%E7%BD%91%E7%BB%9C/http%E5%8D%8F%E8%AE%AE%E5%8F%8A%E5%90%84%E7%89%88%E6%9C%AC%E7%9A%84%E5%B7%AE%E5%88%AB.md)
+- [http2简介](https://github.com/lizuncong/Front-End-Development-Notes/blob/master/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB(%E5%85%A8%E9%9D%A2)/%E7%BD%91%E7%BB%9C/http2%E7%AE%80%E4%BB%8B.md)
+- [http2服务器推送](https://github.com/lizuncong/Front-End-Development-Notes/blob/master/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB(%E5%85%A8%E9%9D%A2)/%E7%BD%91%E7%BB%9C/http2%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%8E%A8%E9%80%81.md)
+- [HTTP缓存](https://github.com/lizuncong/Front-End-Development-Notes/blob/master/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB(%E5%85%A8%E9%9D%A2)/%E7%BD%91%E7%BB%9C/HTTP%E7%BC%93%E5%AD%98.md)
+- [HTTP3详解](https://github.com/lizuncong/Front-End-Development-Notes/blob/master/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB(%E5%85%A8%E9%9D%A2)/%E7%BD%91%E7%BB%9C/HTTP3%E8%AF%A6%E8%A7%A3.md)
+- [TCP](https://github.com/lizuncong/Front-End-Development-Notes/blob/master/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB(%E5%85%A8%E9%9D%A2)/%E7%BD%91%E7%BB%9C/TCP.md)
+- [websocket与http的区别](https://github.com/lizuncong/Front-End-Development-Notes/blob/master/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB(%E5%85%A8%E9%9D%A2)/%E7%BD%91%E7%BB%9C/websocket%E4%B8%8Ehttp%E7%9A%84%E5%8C%BA%E5%88%AB.md)
+- [Cache-Control支持的值](https://github.com/lizuncong/Front-End-Development-Notes/blob/master/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB(%E5%85%A8%E9%9D%A2)/%E7%BD%91%E7%BB%9C/Cache-Control%E6%94%AF%E6%8C%81%E7%9A%84%E5%80%BC.md)
+- [SSL\TLS详细介绍](https://github.com/lizuncong/Front-End-Development-Notes/blob/master/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB(%E5%85%A8%E9%9D%A2)/%E7%BD%91%E7%BB%9C/SSL%5CTLS%E8%AF%A6%E7%BB%86%E4%BB%8B%E7%BB%8D.md)
+- [get和post方法的比较](https://github.com/lizuncong/Front-End-Development-Notes/blob/master/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB(%E5%85%A8%E9%9D%A2)/%E7%BD%91%E7%BB%9C/get%E5%92%8Cpost%E6%96%B9%E6%B3%95%E7%9A%84%E6%AF%94%E8%BE%83.md)
+- [http请求头字段](https://github.com/lizuncong/Front-End-Development-Notes/blob/master/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB(%E5%85%A8%E9%9D%A2)/%E7%BD%91%E7%BB%9C/http%E8%AF%B7%E6%B1%82%E5%A4%B4%E5%AD%97%E6%AE%B5.md)
+- [http请求状态码](https://github.com/lizuncong/Front-End-Development-Notes/blob/master/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB(%E5%85%A8%E9%9D%A2)/%E7%BD%91%E7%BB%9C/http%E8%AF%B7%E6%B1%82%E7%8A%B6%E6%80%81%E7%A0%81.md)
+- [server-sent-event(SSE)](https://github.com/lizuncong/Front-End-Development-Notes/blob/master/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB(%E5%85%A8%E9%9D%A2)/%E7%BD%91%E7%BB%9C/server-sent-event(SSE).md)
+- [webWorker](https://github.com/lizuncong/Front-End-Development-Notes/blob/master/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB(%E5%85%A8%E9%9D%A2)/%E7%BD%91%E7%BB%9C/webWorker.md)
+- [协商缓存中Etag的生成规则](https://github.com/lizuncong/Front-End-Development-Notes/blob/master/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB(%E5%85%A8%E9%9D%A2)/%E7%BD%91%E7%BB%9C/%E5%8D%8F%E5%95%86%E7%BC%93%E5%AD%98%E4%B8%ADEtag%E7%9A%84%E7%94%9F%E6%88%90%E8%A7%84%E5%88%99.md)
+- [图解计算机网络](https://github.com/lizuncong/Front-End-Development-Notes/blob/master/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB(%E5%85%A8%E9%9D%A2)/%E7%BD%91%E7%BB%9C/%E5%9B%BE%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C.md)
 ### 前端社区集锦
 - [谷歌开发者文档](https://developers.google.com/web/fundamentals/performance/speed-tools)
 - [MDN](https://developer.mozilla.org/zh-CN/)
