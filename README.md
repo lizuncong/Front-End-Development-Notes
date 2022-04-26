@@ -35,6 +35,19 @@
 - [webWorker](https://github.com/lizuncong/Front-End-Development-Notes/blob/master/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB(%E5%85%A8%E9%9D%A2)/%E7%BD%91%E7%BB%9C/webWorker.md)
 - [协商缓存中Etag的生成规则](https://github.com/lizuncong/Front-End-Development-Notes/blob/master/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB(%E5%85%A8%E9%9D%A2)/%E7%BD%91%E7%BB%9C/%E5%8D%8F%E5%95%86%E7%BC%93%E5%AD%98%E4%B8%ADEtag%E7%9A%84%E7%94%9F%E6%88%90%E8%A7%84%E5%88%99.md)
 - [图解计算机网络](https://github.com/lizuncong/Front-End-Development-Notes/blob/master/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB(%E5%85%A8%E9%9D%A2)/%E7%BD%91%E7%BB%9C/%E5%9B%BE%E8%A7%A3%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C.md)
+
+### 浏览器渲染
+- [CRP关键渲染路径-从输入URL到页面呈现都发生了什么](https://github.com/lizuncong/Front-End-Development-Notes/blob/master/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB(%E5%85%A8%E9%9D%A2)/%E6%B5%8F%E8%A7%88%E5%99%A8%E6%B8%B2%E6%9F%93/CRP%E5%85%B3%E9%94%AE%E6%B8%B2%E6%9F%93%E8%B7%AF%E5%BE%84-%E4%BB%8E%E8%BE%93%E5%85%A5URL%E5%88%B0%E9%A1%B5%E9%9D%A2%E5%91%88%E7%8E%B0%E9%83%BD%E5%8F%91%E7%94%9F%E4%BA%86%E4%BB%80%E4%B9%88.md)
+
+
+### git
+- [git合并其他仓库的分支](https://github.com/lizuncong/Front-End-Development-Notes/blob/master/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB(%E5%85%A8%E9%9D%A2)/git/git%E5%90%88%E5%B9%B6%E5%85%B6%E4%BB%96%E4%BB%93%E5%BA%93%E7%9A%84%E5%88%86%E6%94%AF.md)
+- [git补丁应用](https://github.com/lizuncong/Front-End-Development-Notes/blob/master/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB(%E5%85%A8%E9%9D%A2)/git/git%E8%A1%A5%E4%B8%81%E5%BA%94%E7%94%A8.md)
+- [基于已有项目仓库初始化另一个新项目并保持git记录](https://github.com/lizuncong/Front-End-Development-Notes/blob/master/%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB(%E5%85%A8%E9%9D%A2)/git/%E5%9F%BA%E4%BA%8E%E5%B7%B2%E6%9C%89%E9%A1%B9%E7%9B%AE%E4%BB%93%E5%BA%93%E5%88%9D%E5%A7%8B%E5%8C%96%E5%8F%A6%E4%B8%80%E4%B8%AA%E6%96%B0%E9%A1%B9%E7%9B%AE%E5%B9%B6%E4%BF%9D%E6%8C%81git%E8%AE%B0%E5%BD%95.md)
+
+
+
+
 ### 前端社区集锦
 - [谷歌开发者文档](https://developers.google.com/web/fundamentals/performance/speed-tools)
 - [MDN](https://developer.mozilla.org/zh-CN/)
