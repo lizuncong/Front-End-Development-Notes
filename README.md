@@ -1,3 +1,5 @@
+>八股文可以直接看前端知识体系目录下面的文章。踩坑系列用于收集一些比较有意思有难度的bug。最佳实践是我在做项目过程中的一些思考。readme这里只将一部分文章列出来，具体可以看各个目录下的文章
+
 ### 踩坑系列
 按debug难度从高到低排列
 - [【难】谷歌翻译错误地将繁体字检测成简体字](https://github.com/lizuncong/Front-End-Development-Notes/blob/master/%E8%B8%A9%E5%9D%91%E7%B3%BB%E5%88%97/%E8%B0%B7%E6%AD%8C%E7%BF%BB%E8%AF%91.md)
