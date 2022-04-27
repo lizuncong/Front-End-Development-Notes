@@ -2,7 +2,7 @@
 
 ### 踩坑系列
 按debug难度从高到低排列
-- [【难】谷歌翻译错误地将繁体字检测成简体字](https://github.com/lizuncong/Front-End-Development-Notes/blob/master/%E8%B8%A9%E5%9D%91%E7%B3%BB%E5%88%97/%E8%B0%B7%E6%AD%8C%E7%BF%BB%E8%AF%91.md)
+- [【难】谷歌翻译错误地将繁体字检测成简体字，如何从1万多行压缩混淆后的源码中探索BUG的真相](https://github.com/lizuncong/Front-End-Development-Notes/blob/master/%E8%B8%A9%E5%9D%91%E7%B3%BB%E5%88%97/%E8%B0%B7%E6%AD%8C%E7%BF%BB%E8%AF%91.md)
 - [【难】从height百分比看浏览器的怪异模式](https://github.com/lizuncong/Front-End-Development-Notes/blob/master/%E8%B8%A9%E5%9D%91%E7%B3%BB%E5%88%97/%E4%BB%8Eheight%E7%99%BE%E5%88%86%E6%AF%94%E7%9C%8B%E6%B5%8F%E8%A7%88%E5%99%A8%E7%9A%84%E6%80%AA%E5%BC%82%E6%A8%A1%E5%BC%8F.md)
 - [【难】lazysizes插件getElementByClass查询结果实时性问题](https://github.com/lizuncong/Front-End-Development-Notes/blob/master/%E8%B8%A9%E5%9D%91%E7%B3%BB%E5%88%97/getElementByClass%E6%9F%A5%E8%AF%A2%E7%BB%93%E6%9E%9C%E5%AE%9E%E6%97%B6%E6%80%A7%E9%97%AE%E9%A2%98.md)
 - [【难】svg-mask-id重复的问题](https://github.com/lizuncong/Front-End-Development-Notes/blob/master/%E8%B8%A9%E5%9D%91%E7%B3%BB%E5%88%97/svg-mask-id%E9%87%8D%E5%A4%8D%E7%9A%84%E9%97%AE%E9%A2%98.md)
