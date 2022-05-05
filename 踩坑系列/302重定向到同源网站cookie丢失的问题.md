@@ -126,6 +126,6 @@ const devConfig = {
 
 当我们发起一个对第三方域名接口的访问时，如果这个接口又重定向回我们自己的接口，浏览器会认为我们自己的接口是第三方域名发起的(通过下图的 Initial 可以看出)，因此浏览器认为这是一个跨域的请求
 
-![image](https://github.com/lizuncong/Front-End-Development-Notes/blob/master/resource/302-01.jpg)
+![image](https://github.com/lizuncong/Front-End-Development-Notes/blob/master/resource/302-02.jpg)
 
 如果有朋友知道原因，还请帮忙解答一下
