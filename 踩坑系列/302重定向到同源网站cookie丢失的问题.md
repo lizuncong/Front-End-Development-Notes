@@ -40,7 +40,7 @@ app.get("/api/authSuccess", (req, res) => {
 app.listen(3000);
 ```
 
-在实际的业务场景中，`http://localhost:9000/server/api/authSuccess` 是我们自己的后端服务。
+在实际的业务场景中，`http://localhost:9000/`是我们的前端服务， `http://localhost:9000/server/api/authSuccess` 会被webpack dev server转发到3000端口的后端服务。
 
 本地起一个简单的前端服务：
 
