@@ -122,5 +122,11 @@ node --max-new-space-size=1024 app.js 单位是kb
 
 ![image](https://github.com/lizuncong/Front-End-Development-Notes/blob/master/resource/memory-04.jpg)
 
+## 内存泄漏的场景
+- 定时器
+- dom事件监听器
+- 闭包
+- 死循环
+
 ## 参考链接
 - [https://v8.dev/blog/trash-talk](https://v8.dev/blog/trash-talk)
