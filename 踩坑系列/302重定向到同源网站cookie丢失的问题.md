@@ -21,7 +21,7 @@ app.get("/api/auth", (req, res) => {
 app.listen(4000);
 ```
 
-这个服务非常简单，运行在 4000 前端，监听 `/api/auth` 并重定向到 `http://localhost:9000/server/api/authSuccess`。
+这个服务非常简单，运行在 4000 端口，监听 `/api/auth` 并重定向到 `http://localhost:9000/server/api/authSuccess`。
 
 在实际的业务场景中，`http://localhost:4000/api/auth`是第三方服务提供的鉴权服务，鉴权成功会重定向到我们提供的前端的 redirect url，即 `http://localhost:9000/server/api/authSuccess`。这里只是简化复现问题
 
