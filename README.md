@@ -66,24 +66,9 @@
 - [segmentfault](https://segmentfault.com/)
 - [高性能浏览器网络](https://hpbn.co/)
 - [BFE](https://bigfrontend.dev/)
-- [React 源码解析](https://programmer.help/blogs/react-source-code-analysis-2-design-concept-of-react.html)
-- 另外还有掘金、简书等
 
-**_建议优先阅读谷歌开发者文档_**
 
 为了在查看本仓库时有一个很好的体验，可以安装一个谷歌插件："Octotree - GitHub code tree"。这个插件使得在浏览器上查看 github 仓库时，能像
 IDE 一样组织目录。方便阅读。如下：
 
 ![image](https://github.com/lizuncong/Front-End-Development-Notes/blob/master/resource/octotree.png)
-
-掌握 WebSocket，SSE，WebRTC，Web Worker，Service Worker，PWA，了解 HTTP，HTTPS，TCP，UDP，HTTP2 服务器推送，了解 WebAssembly
-
-掌握 Promise，跨域，Async Await，Generator，Web Component，熟悉 typescript
-
-掌握 webpack 三大核心机制：tapable，loader，plugin，了解 webpack 热更新原理，熟悉 babel 编译原理及其插件开发
-
-掌握 react，Fiber，React SSR，redux 原理，Koa 原理，React Router 原理
-
-掌握常见 Web 安全漏洞及防御技巧
-
-熟悉浏览器渲染各阶段及性能优化手段
