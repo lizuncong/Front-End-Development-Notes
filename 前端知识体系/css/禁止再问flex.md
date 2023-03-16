@@ -38,16 +38,91 @@ flex-flow属性是flex-direction和flex-wrap属性的合并形式。
 如果： 为正，那么，伸展的长度就是 单个元素的(flex-grow / 总子元素的flex-grow 之和) *  正可用空间
 如果：为负，那么，收缩的长度就是 单个元素的(flex-shrink / 总子元素的flex-shrink之和) *  负可用空间
 
+案例：创建几个flexbox
+```html
+  <div class="container">
+    <div class="box1">
+      <h1>Box 1</h1>
+      <p>Some text</p>
+    </div>
+    <div class="box2">
+      <h1>Box 2</h1>
+      <p>Some text</p>
+    </div>
+    <div class="box3">
+      <h1>Box 3</h1>
+      <p>Some text</p>
+    </div>
+  </div>
+```
+首先尝试伸展
+```css
+ <style>
+    .container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      align-content: center;
+      width: 500px; (看这里)
+      box-sizing: border-box;
+    }
+    .box1 {
+      background-color: red;
+      height: 100px;
+      width: 100px;
+      flex-shrink: 1;
+      flex-grow: 1;
+      block-size: border-box;
+    }
+    .box2 {
+      background-color: green;
+      width: 100px;
+      height: 100px;
+      flex-shrink: 0;
+    }
+    .box3 {
+      background-color: blue;
+      width: 100px;
+      height: 100px;
+      flex-shrink: 0;
+    }
+  </style>
+```
+上面的例子，外层总长度为500，每个元素的flex-basis 是 100px，那么剩余可用空间是200px。 ok，那么计算伸展，box2，box3 默认flex-grow 是0，而box1是 1，那么
+box1的伸展空间就是 1 / (1+0+0) * 200 = 200px。
+那么box1的长度就是100 + 200px = 300px。
+
+** 把容器宽度的改小 **
+```css
+    .container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      align-content: center;
+      width: 260px; (看这里)
+      box-sizing: border-box;
+    }
+```
+面的例子，外层总长度为250，每个元素的flex-basis 是 100px，那么负可用空间是60px。
+box2, box3 每个元素的flex-shrink 是 1 (默认值也是1)。
+box1的收缩长度是： 1 / (1+1+1) * 60 = 20px。
+那么 box1 的长度是100-20px = 80px 。
+
 # 对齐
 
 ## 控制对齐的属性
-justify-content - 控制主轴（横轴）上所有 flex 项目的对齐。
-align-items - 控制交叉轴（纵轴）上所有 flex 项目的对齐。
-align-self - 控制交叉轴（纵轴）上的单个 flex 项目的对齐。
-align-content - 控制“多条主轴”的 flex 项目在交叉轴的对齐。 ？（出现在换行的情况，多条主轴进行对齐，类似于街头烤串要在铁丝网上怎么放，居中 or 首尾 or 从头到尾）
+- justify-content - 控制主轴（横轴）上所有 flex 项目的对齐。
+- align-items - 控制交叉轴（纵轴）上所有 flex 项目的对齐。
+- align-self - 控制交叉轴（纵轴）上的单个 flex 项目的对齐。
+- align-content - 控制“多条主轴”的 flex 项目在交叉轴的对齐。 ？（出现在换行的情况，多条主轴进行对齐，类似于街头烤串要在铁丝网上怎么放，居中 or 首尾 or 从头到尾）
 
 ## 对齐属性的值
-flex-start开始端
-flex-end 结束端
-center 居中
-baseline 基线（首元素起始线）
+- flex-start开始端
+- flex-end 结束端
+- center 居中
+- baseline 基线（首元素起始线）
+
+
+
