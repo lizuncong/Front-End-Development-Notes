@@ -93,7 +93,7 @@ flex-flow属性是flex-direction和flex-wrap属性的合并形式。
 box1的伸展空间就是 1 / (1+0+0) * 200 = 200px。
 那么box1的长度就是100 + 200px = 300px。
 
-** 把容器宽度的改小 **
+**把容器宽度的改小**
 ```css
     .container {
       display: flex;
