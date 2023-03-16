@@ -79,13 +79,11 @@ flex-flow属性是flex-direction和flex-wrap属性的合并形式。
       background-color: green;
       width: 100px;
       height: 100px;
-      flex-shrink: 0;
     }
     .box3 {
       background-color: blue;
       width: 100px;
       height: 100px;
-      flex-shrink: 0;
     }
   </style>
 ```
@@ -101,11 +99,11 @@ box1的伸展空间就是 1 / (1+0+0) * 200 = 200px。
       justify-content: space-between;
       align-items: center;
       align-content: center;
-      width: 260px; (看这里)
+      width: 240px; (看这里)
       box-sizing: border-box;
     }
 ```
-面的例子，外层总长度为260px，每个元素的flex-basis 是 100px，那么负可用空间是60px。
+面的例子，外层总长度为240px，每个元素的flex-basis 是 100px，那么负可用空间是300 - 240 = 60px。
 box2, box3 每个元素的flex-shrink 是 1 (默认值也是1)。
 box1的收缩长度是： 1 / (1+1+1) * 60 = 20px。
 那么 box1 的长度是100-20px = 80px 。
