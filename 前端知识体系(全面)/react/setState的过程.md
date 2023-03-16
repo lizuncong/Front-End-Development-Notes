@@ -1,0 +1,1 @@
+[已迁移到mini-react仓库，点击查看](https://github.com/lizuncong/mini-react/blob/master/docs/setState%E7%9A%84%E8%BF%87%E7%A8%8B.md)

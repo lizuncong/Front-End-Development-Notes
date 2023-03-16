@@ -1,0 +1,1 @@
+[已迁移到mini-react-redux仓库，点击查看](https://github.com/lizuncong/mini-react-redux/blob/master/react.context%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86.md)

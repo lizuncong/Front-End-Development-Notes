@@ -1,0 +1,26 @@
+html,
+body,
+#root {
+  height: 100%;
+  overflow: hidden;
+}
+
+.App {
+  display: flex;
+  height: 100%;
+  background-color: white;
+}
+.App .left {
+  width: 250px;
+}
+.App .right {
+  flex: 1;
+  overflow: auto;
+}
+
+.App .canvas {
+  flex: 1;
+  box-sizing: border-box;
+  border: 1px solid black;
+}
+

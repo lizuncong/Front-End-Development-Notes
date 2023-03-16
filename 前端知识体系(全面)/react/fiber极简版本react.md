@@ -1,0 +1,1 @@
+[已迁移到mini-react仓库，点击查看](https://github.com/lizuncong/mini-react/blob/master/docs/build_your_own_react.md)
